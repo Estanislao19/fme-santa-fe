@@ -1,0 +1,48 @@
+import Form from "@/components/Forms";
+import { PageHero } from "@/components/ui";
+import { AllianceStory, Collaborators } from "@/components/Institutional";
+import { PhotoGallery } from "@/components/ui";
+import { alliances } from "@/data/alliances";
+import { pageMetadata } from "@/utils/metadata";
+export const metadata = pageMetadata(
+  "Alianzas y colaboradores",
+  "Vínculos con empresas e instituciones para acercar oportunidades a las emprendedoras de Santa Fe.",
+  "/alianzas",
+);
+export default function Page() {
+  return (
+    <>
+      <PageHero
+        eyebrow="EMPRESAS, INSTITUCIONES Y COMUNIDAD"
+        title="Las alianzas multiplican oportunidades."
+        description="Conectamos con organizaciones que quieran acercar propuestas y acompañar a las mujeres emprendedoras de Santa Fe."
+      />
+      <div className="container">
+        <section className="section">
+          {alliances.map((alliance) => (
+            <div key={alliance.name}>
+              <AllianceStory alliance={alliance} />
+              <PhotoGallery
+                images={alliance.gallery}
+                label={`Registro de la alianza con ${alliance.name}`}
+              />
+            </div>
+          ))}
+        </section>
+        <Collaborators />
+        <section className="section form-section" id="propuesta">
+          <div>
+            <p className="eyebrow">CONSTRUYAMOS UN VÍNCULO</p>
+            <h2>¿Tu empresa quiere trabajar con FME?</h2>
+            <p>
+              Contanos qué pueden aportar y qué les gustaría construir junto a
+              la Fundación. Podemos conversar sobre formación, eventos,
+              servicios y otras formas de colaboración.
+            </p>
+          </div>
+          <Form kind="alliance" />
+        </section>
+      </div>
+    </>
+  );
+}
