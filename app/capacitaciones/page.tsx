@@ -11,7 +11,6 @@ export default function Page() {
   return (
     <>
       <PageHero
-        eyebrow="FORMACIÓN Y ENCUENTROS"
         title="Aprender también es emprender"
         description="Espacios para incorporar herramientas, compartir experiencias y seguir construyendo tu camino."
       />
@@ -29,7 +28,6 @@ export default function Page() {
         </section>
         <section className="section">
           <SectionHeading
-            eyebrow="NUESTRA MEMORIA"
             title="Capacitaciones realizadas"
             description="Un lugar para volver a los encuentros, recuperar aprendizajes y compartir lo vivido."
           />

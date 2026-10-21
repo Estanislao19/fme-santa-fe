@@ -11,7 +11,6 @@ export default function Page() {
   return (
     <>
       <PageHero
-        eyebrow="VOLUNTARIADO"
         title="Sumá tu talento a FME"
         description="Tu tiempo, tus conocimientos y tu mirada pueden acompañar el trabajo de la Fundación. Contanos cómo te gustaría colaborar."
       />
@@ -26,14 +25,12 @@ export default function Page() {
               <a key={area} href="#voluntariado">
                 <span className="number">{String(i + 1).padStart(2, "0")}</span>
                 <h3>{area}</h3>
-                <span aria-hidden="true">↗</span>
               </a>
             ))}
           </div>
         </section>
         <section className="section form-section" id="voluntariado">
           <div>
-            <p className="eyebrow">COMPARTÍ LO QUE SABÉS</p>
             <h2>Quiero ser voluntaria/o</h2>
             <p>
               Nos interesa conocer tu experiencia, tus intereses y el tiempo que

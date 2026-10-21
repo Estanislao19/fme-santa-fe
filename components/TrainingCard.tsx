@@ -62,7 +62,7 @@ export default function TrainingCard({ training }: { training: Training }) {
         <div className="actions">
           <Link className="text-link" href={`/capacitaciones/${training.slug}`}>
             {training.status === "past"
-              ? "Ver el encuentro →"
+              ? "Ver el encuentro"
               : "Ver capacitación"}
           </Link>
           {training.status === "upcoming" && (

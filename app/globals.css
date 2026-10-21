@@ -358,15 +358,6 @@ a:hover {
   flex-direction: column;
   padding-top: 32px;
 }
-.hero-visual-label {
-  display: flex;
-  justify-content: space-between;
-  font-size: 8px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  padding-bottom: 13px;
-}
 .photo-placeholder {
   position: relative;
   background: #dce7e4;
@@ -471,15 +462,6 @@ a:hover {
 .intro-photo .photo-placeholder {
   height: 370px;
 }
-.photo-index {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  margin-top: 16px;
-  color: var(--muted);
-}
 .intro-copy > p:not(.eyebrow):not(.lede) {
   font-size: 16px;
   color: #5b7074;
@@ -578,9 +560,6 @@ a:hover {
   font-size: 23px;
   margin: 8px 0 0;
 }
-.directory-prompt .eyebrow {
-  font-size: 9px;
-}
 .category-links {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -658,9 +637,6 @@ a:hover {
   grid-template-columns: 1.2fr 1fr;
   gap: 90px;
   align-items: center;
-}
-.community-band .eyebrow {
-  color: #d8e3dc;
 }
 .community-band h2 {
   color: #fffef5;
@@ -1162,7 +1138,7 @@ a:hover {
   min-height: 250px;
   height: 300px;
 }
-.team-grid .eyebrow {
+.team-grid .team-role {
   margin: 20px 0 10px;
   font-family: var(--font-body), sans-serif;
   font-size: 14px;
@@ -1172,7 +1148,7 @@ a:hover {
 .team-grid h3 {
   font-size: 19px;
 }
-.team-grid p:not(.eyebrow) {
+.team-grid p:not(.team-role) {
   font-size: 14px;
   color: var(--muted);
 }
@@ -1186,11 +1162,6 @@ a:hover {
   padding: 36px;
   text-align: center;
   border: 1px solid #cad6cb;
-}
-.map-placeholder > span {
-  font-size: 45px;
-  color: var(--teal);
-  margin-bottom: 15px;
 }
 .map-placeholder h2,
 .map-placeholder h3 {
@@ -1213,10 +1184,6 @@ a:hover {
 .community-note p {
   max-width: 800px;
   margin-bottom: 0;
-}
-.community-note .eyebrow {
-  color: #f6d07c;
-  margin-bottom: 22px;
 }
 .area-list {
   display: grid;
@@ -1252,9 +1219,6 @@ a:hover {
   margin: 0;
   color: var(--muted);
   font-size: 16px;
-}
-.contribution-options > a > span:last-child {
-  font-size: 24px;
 }
 .project-card {
   display: grid;
@@ -1671,9 +1635,6 @@ a:hover {
   .hero-visual > .photo-placeholder {
     min-height: 320px;
   }
-  .hero-visual-label {
-    font-size: 8px;
-  }
   .hero-caption {
     padding: 16px 0;
   }
@@ -1995,10 +1956,10 @@ a:hover {
     font-size: 15px;
     overflow-wrap: anywhere;
   }
-  .team-grid .eyebrow {
+  .team-grid .team-role {
     font-size: 8px;
   }
-  .team-grid p:not(.eyebrow) {
+  .team-grid p:not(.team-role) {
     font-size: 13px;
   }
   .map-placeholder {
@@ -2079,4 +2040,11 @@ a:hover {
     animation: none !important;
     transition: none !important;
   }
+}
+
+.institutional-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--teal);
 }

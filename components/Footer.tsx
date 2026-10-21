@@ -28,7 +28,7 @@ export default function Footer() {
               conectar y hacer visible lo que hacemos.
             </p>
             <Link className="text-link light" href="/comunidad">
-              Sumate a la comunidad →
+              Sumate a la comunidad
             </Link>
           </div>
           <div>

@@ -47,7 +47,7 @@ export function PageHero({
   description,
   children,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   description: string;
   children?: ReactNode;
@@ -55,7 +55,7 @@ export function PageHero({
   return (
     <section className="page-hero">
       <div className="container">
-        <p className="eyebrow">{eyebrow}</p>
+        {eyebrow && <p className="eyebrow">{eyebrow}</p>}
         <h1>{title}</h1>
         <p className="lede">{description}</p>
         {children}

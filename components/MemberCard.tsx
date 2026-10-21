@@ -31,7 +31,7 @@ export default function MemberCard({
       <p>{member.description}</p>
       {member.demo && <DemoLabel />}
       <div className="member-links">
-        <Link href={`/socias/${member.slug}`}>Conocé su historia →</Link>
+        <Link href={`/socias/${member.slug}`}>Conocé su historia</Link>
         {phone && <a href={phone}>Contactar</a>}
         {member.instagram && (
           <a href={member.instagram} target="_blank" rel="noopener noreferrer">

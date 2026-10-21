@@ -46,7 +46,7 @@ export function AllianceStory({
           </a>
         )}
         <Link className="text-link" href="/alianzas#propuesta">
-          Acercá una propuesta →
+          Acercá una propuesta
         </Link>
       </div>
     </div>

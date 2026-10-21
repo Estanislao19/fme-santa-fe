@@ -197,8 +197,7 @@ export default function Form({
           </p>
         )}
         <button type="submit" className="button" disabled={busy}>
-          {busy ? "Revisando…" : formButtons[kind]}{" "}
-          <span aria-hidden="true">↗</span>
+          {busy ? "Revisando…" : formButtons[kind]}
         </button>
         {message && (
           <div className="form-result" ref={result} tabIndex={-1} role="status">

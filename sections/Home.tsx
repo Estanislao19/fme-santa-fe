@@ -44,10 +44,6 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-visual">
-            <div className="hero-visual-label">
-              <span>MUJERES QUE HACEN</span>
-              <span>SANTA FE, ARGENTINA</span>
-            </div>
             <PhotoPlaceholder
               label="Nuestra comunidad, en primera persona"
               image={media.hero}
@@ -65,11 +61,11 @@ export default function Home() {
       </section>
       <div className="principles-strip">
         <div className="container">
-          <span>COMUNIDAD</span>
-          <span>VISIBILIDAD</span>
-          <span>FORMACIÓN</span>
-          <span>OPORTUNIDADES</span>
-          <span>ACOMPAÑAMIENTO</span>
+          <span>Comunidad</span>
+          <span>Visibilidad</span>
+          <span>Formación</span>
+          <span>Oportunidades</span>
+          <span>Acompañamiento</span>
         </div>
       </div>
       <section className="section container intro-grid">
@@ -79,12 +75,8 @@ export default function Home() {
             variant="sand"
             image={media.introduction}
           />
-          <span className="photo-index">
-            Fundación Mujeres Emprendedoras · Santa Fe
-          </span>
         </div>
         <div className="intro-copy">
-          <p className="eyebrow">SOMOS FME</p>
           <h2>
             Una comunidad
             <br /> para crecer juntas.
@@ -100,7 +92,7 @@ export default function Home() {
             y generar oportunidades.
           </p>
           <Link className="text-link" href="/nosotras">
-            Conocé nuestra historia →
+            Conocé nuestra historia
           </Link>
         </div>
       </section>
@@ -111,7 +103,7 @@ export default function Home() {
             description="Elegir sus productos, contratar sus servicios y recomendar su trabajo también es construir comunidad."
           >
             <Link className="text-link" href="/socias">
-              Ver todas las emprendedoras →
+              Ver todas las emprendedoras
             </Link>
           </SectionHeading>
           <div className="member-grid">
@@ -151,7 +143,7 @@ export default function Home() {
           description="Capacitaciones y encuentros para incorporar herramientas, hacer consultas y compartir experiencias."
         >
           <Link className="text-link" href="/capacitaciones">
-            Todas las capacitaciones →
+            Todas las capacitaciones
           </Link>
         </SectionHeading>
         <TrainingCard training={trainings[0]} />
@@ -159,7 +151,6 @@ export default function Home() {
       <section className="community-band">
         <div className="container community-layout">
           <div>
-            <p className="eyebrow">SER PARTE DE FME</p>
             <h2>Una red para compartir experiencias y contactos.</h2>
           </div>
           <div>
@@ -169,7 +160,7 @@ export default function Home() {
               encuentro de la Fundación.
             </p>
             <Link className="text-link light" href="/comunidad">
-              Qué significa ser socia →
+              Qué significa ser socia
             </Link>
           </div>
         </div>
@@ -180,7 +171,7 @@ export default function Home() {
           description="Conectamos con empresas e instituciones para acercar oportunidades a nuestra comunidad."
         >
           <Link className="text-link" href="/alianzas">
-            Conocé las alianzas →
+            Conocé las alianzas
           </Link>
         </SectionHeading>
         <AllianceStory />
@@ -194,7 +185,7 @@ export default function Home() {
               formas de acompañar el trabajo de FME.
             </p>
             <Link className="text-link" href="/colabora">
-              Conocé las opciones →
+              Conocé las opciones
             </Link>
           </div>
           <div className="contribution-list">

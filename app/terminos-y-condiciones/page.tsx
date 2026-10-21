@@ -9,7 +9,6 @@ export default function Page() {
   return (
     <>
       <PageHero
-        eyebrow="INFORMACIÓN DEL SITIO"
         title="Términos y condiciones"
         description="Documento provisional, pendiente de revisión y aprobación institucional."
       />

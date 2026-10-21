@@ -34,15 +34,7 @@ export default async function Page({
   if (!t) notFound();
   return (
     <>
-      <PageHero
-        eyebrow={
-          t.status === "past"
-            ? "MEMORIA INSTITUCIONAL"
-            : "FORMACIÓN PARA EMPRENDEDORAS"
-        }
-        title={t.title}
-        description={t.description}
-      >
+      <PageHero title={t.title} description={t.description}>
         {t.demo && <DemoLabel />}
       </PageHero>
       <div className="container">
@@ -77,7 +69,6 @@ export default async function Page({
         {t.status === "upcoming" ? (
           <section className="section form-section" id="inscripcion">
             <div>
-              <p className="eyebrow">TU PRÓXIMO APRENDIZAJE</p>
               <h2>Inscribirme</h2>
               <p>
                 Formulario de demostración. La inscripción se habilitará cuando

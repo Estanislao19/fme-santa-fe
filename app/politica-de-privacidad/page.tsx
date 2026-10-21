@@ -9,7 +9,6 @@ export default function Page() {
   return (
     <>
       <PageHero
-        eyebrow="INFORMACIÓN DEL SITIO"
         title="Política de privacidad"
         description="Versión informativa provisional, pendiente de revisión y aprobación institucional antes de habilitar la recepción de datos."
       />

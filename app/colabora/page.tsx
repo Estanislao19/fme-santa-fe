@@ -12,7 +12,6 @@ export default function Page() {
   return (
     <>
       <PageHero
-        eyebrow="HACER COMUNIDAD TAMBIÉN ES COLABORAR"
         title="Cada aporte puede abrir una oportunidad."
         description="Hay muchas formas de acompañar a Fundación Mujeres Emprendedoras. Encontrá la que tenga sentido para vos o para tu organización."
       />
@@ -30,7 +29,6 @@ export default function Page() {
                   <h3>{title}</h3>
                   <p>{copy}</p>
                 </div>
-                <span aria-hidden="true">↗</span>
               </Link>
             ))}
           </div>

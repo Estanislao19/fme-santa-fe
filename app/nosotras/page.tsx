@@ -17,7 +17,6 @@ export default function Page() {
   return (
     <>
       <PageHero
-        eyebrow="NUESTRA FUNDACIÓN"
         title="Un lugar para encontrarnos. Una red para crecer."
         description="Somos Fundación Mujeres Emprendedoras, una comunidad de Santa Fe que acompaña y visibiliza a mujeres y sus emprendimientos."
       />
@@ -62,7 +61,7 @@ export default function Page() {
         </section>
         <section className="section mission-grid">
           <div>
-            <p className="eyebrow">MISIÓN</p>
+            <p className="institutional-label">Misión</p>
             <h2>Acompañar, conectar y visibilizar.</h2>
             <p>
               Promover espacios de formación y vínculos que acompañen a las
@@ -70,7 +69,7 @@ export default function Page() {
             </p>
           </div>
           <div>
-            <p className="eyebrow">VISIÓN</p>
+            <p className="institutional-label">Visión</p>
             <h2>Una comunidad con más oportunidades.</h2>
             <p>
               Construir una red cercana y colaborativa, en la que las
@@ -107,7 +106,7 @@ export default function Page() {
                   label={`Fotografía · ${p.role}`}
                   variant="sage"
                 />
-                <p className="eyebrow">{p.role}</p>
+                <p className="team-role">{p.role}</p>
                 <h3>{p.name}</h3>
                 <p>{p.description}</p>
               </article>
@@ -116,7 +115,6 @@ export default function Page() {
         </section>
         <section className="section form-section">
           <div>
-            <p className="eyebrow">SANTA FE, ARGENTINA</p>
             <h2>Nuestra sede</h2>
             <p>Dirección: {site.address}</p>
             <p>Horario: {site.hours}</p>
@@ -127,7 +125,6 @@ export default function Page() {
             </Button>
           </div>
           <div className="map-placeholder">
-            <span aria-hidden="true">⌖</span>
             <h3>Nos encontramos en Santa Fe</h3>
             <p>Mapa pendiente de la dirección confirmada.</p>
           </div>

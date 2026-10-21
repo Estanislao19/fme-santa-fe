@@ -11,14 +11,12 @@ export default function Page() {
   return (
     <>
       <PageHero
-        eyebrow="QUIERO SUMARME A FME"
         title="Tu emprendimiento no tiene que crecer solo."
         description="Hay otras mujeres haciendo camino, con preguntas, experiencias y ganas de compartir. Acá hay un lugar para conocernos."
       />
       <div className="container">
         <section className="section intro-grid">
           <div>
-            <p className="eyebrow">EL VALOR DE PERTENECER</p>
             <h2>¿Para quién es FME?</h2>
             <p className="lede">
               Para mujeres emprendedoras que quieran conectar con una comunidad
@@ -42,7 +40,6 @@ export default function Page() {
         </section>
         <section className="section">
           <SectionHeading
-            eyebrow="QUÉ VAS A ENCONTRAR"
             title="Beneficios de ser socia"
             description="Estos son los ejes que buscamos construir. Las actividades, condiciones y beneficios específicos se comunican cuando están confirmados."
           />
@@ -57,7 +54,6 @@ export default function Page() {
           </div>
         </section>
         <section className="community-note">
-          <p className="eyebrow">QUÉ ESPERAMOS CONSTRUIR JUNTAS</p>
           <h2>Una red en la que compartir también sea una forma de crecer.</h2>
           <p>
             Buscamos una comunidad con escucha, respeto y participación. Un
@@ -67,7 +63,6 @@ export default function Page() {
         </section>
         <section className="section form-section" id="sumarme">
           <div>
-            <p className="eyebrow">CONTANOS SOBRE VOS</p>
             <h2>Quiero formar parte</h2>
             <p>
               Dejanos conocer tu emprendimiento. Este formulario estará

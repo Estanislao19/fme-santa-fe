@@ -80,7 +80,7 @@ export default function MemberDirectory() {
               setCategory("Todas");
             }}
           >
-            Limpiar búsqueda ↗
+            Limpiar búsqueda
           </button>
         </div>
       )}

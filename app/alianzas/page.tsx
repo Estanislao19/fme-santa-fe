@@ -13,7 +13,6 @@ export default function Page() {
   return (
     <>
       <PageHero
-        eyebrow="EMPRESAS, INSTITUCIONES Y COMUNIDAD"
         title="Las alianzas multiplican oportunidades."
         description="Conectamos con organizaciones que quieran acercar propuestas y acompañar a las mujeres emprendedoras de Santa Fe."
       />
@@ -32,7 +31,6 @@ export default function Page() {
         <Collaborators />
         <section className="section form-section" id="propuesta">
           <div>
-            <p className="eyebrow">CONSTRUYAMOS UN VÍNCULO</p>
             <h2>¿Tu empresa quiere trabajar con FME?</h2>
             <p>
               Contanos qué pueden aportar y qué les gustaría construir junto a

@@ -43,7 +43,6 @@ export default async function Page({
       <section className="section container profile-grid">
         <PhotoPlaceholder label={m.name} image={m.image} variant="sand" />
         <div>
-          <p className="eyebrow">LA MUJER DETRÁS DEL EMPRENDIMIENTO</p>
           <h2>{m.name}</h2>
           <p className="lede">{m.story}</p>
           <h3>Qué ofrece</h3>

@@ -13,14 +13,12 @@ export default function Page() {
   return (
     <>
       <PageHero
-        eyebrow="CONVERSEMOS"
         title="Una conversación puede ser el primer paso."
         description="Para acercar una consulta, conocer la Fundación o compartir una propuesta, encontrá acá nuestros canales de contacto."
       />
       <div className="container">
         <section className="section form-section" id="canales">
           <div>
-            <p className="eyebrow">FUNDACIÓN MUJERES EMPRENDEDORAS</p>
             <h2>Estamos en Santa Fe.</h2>
             <dl className="detail-list">
               {[
@@ -65,7 +63,6 @@ export default function Page() {
         </section>
         <section className="section">
           <div className="map-placeholder">
-            <span aria-hidden="true">⌖</span>
             <h2>Nos encontramos en Santa Fe</h2>
             <p>
               Mapa preparado para integrar cuando esté confirmada la dirección
