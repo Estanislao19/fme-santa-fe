@@ -10,7 +10,7 @@ export default function WhatsAppButton() {
       rel="noopener noreferrer"
       aria-label="Contactar a FME por WhatsApp"
     >
-      <span aria-hidden="true">◉</span> WhatsApp ↗
+      WhatsApp
     </a>
   ) : (
     <Link
@@ -18,7 +18,7 @@ export default function WhatsAppButton() {
       href="/contacto#canales"
       aria-label="Consultar canales de contacto; WhatsApp pendiente de confirmación"
     >
-      <span aria-hidden="true">◉</span> Contactanos ↗
+      Contactanos
     </Link>
   );
 }

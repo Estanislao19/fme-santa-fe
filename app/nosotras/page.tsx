@@ -25,8 +25,7 @@ export default function Page() {
         <section className="section intro-grid">
           <PhotoPlaceholder label="Las mujeres que hacen FME" variant="sand" />
           <div>
-            <p className="eyebrow">QUIÉNES SOMOS</p>
-            <h2>El valor de hacer camino juntas.</h2>
+            <h2>Una comunidad de emprendedoras en Santa Fe.</h2>
             <p className="lede">
               Buscamos crear espacios de formación, encuentro y colaboración
               para las mujeres emprendedoras de Santa Fe.
@@ -40,7 +39,6 @@ export default function Page() {
         </section>
         <section className="section">
           <SectionHeading
-            eyebrow="LO QUE NOS TRAJO HASTA ACÁ"
             title="Nuestra historia"
             description="La historia institucional está en preparación. Los hitos y las fechas se incorporarán con información confirmada por la Fundación."
           />
@@ -85,11 +83,8 @@ export default function Page() {
           </p>
         </section>
         <section className="section">
-          <SectionHeading
-            eyebrow="LO QUE GUÍA EL CAMINO"
-            title="Nuestros valores"
-          />
-          <div className="value-grid">
+          <SectionHeading title="Nuestros valores" />
+          <div className="values-editorial">
             {values.map(([title, copy], i) => (
               <div key={title}>
                 <span className="number">0{i + 1}</span>
@@ -101,7 +96,6 @@ export default function Page() {
         </section>
         <section className="section">
           <SectionHeading
-            eyebrow="PERSONAS QUE ACOMPAÑAN"
             title="Nuestro equipo"
             description="Los nombres, las fotografías y la composición de las autoridades están pendientes de confirmación."
           />

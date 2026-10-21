@@ -18,24 +18,21 @@ export default function MemberCard({
         aria-label={`Conocer a ${member.name}`}
       >
         <PhotoPlaceholder
-          label={member.business}
+          label={member.name}
           image={member.image}
           variant={["sand", "sage", "blue"][index % 3]}
         />
-        <span className="member-image-arrow" aria-hidden="true">
-          ↗
-        </span>
       </Link>
       <div className="member-category">{member.category}</div>
       <h3>
-        <Link href={`/socias/${member.slug}`}>{member.business}</Link>
+        <Link href={`/socias/${member.slug}`}>{member.name}</Link>
       </h3>
-      <p className="member-name">{member.name}</p>
+      <p className="member-name">{member.business}</p>
       <p>{member.description}</p>
       {member.demo && <DemoLabel />}
       <div className="member-links">
-        <Link href={`/socias/${member.slug}`}>Conocé su historia ↗</Link>
-        {phone && <a href={phone}>Contactar ↗</a>}
+        <Link href={`/socias/${member.slug}`}>Conocé su historia →</Link>
+        {phone && <a href={phone}>Contactar</a>}
         {member.instagram && (
           <a href={member.instagram} target="_blank" rel="noopener noreferrer">
             Ver Instagram ↗

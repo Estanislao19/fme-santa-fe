@@ -1,9 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-export function Arrow() {
-  return <span aria-hidden="true">↗</span>;
-}
 export function Button({
   href,
   children,
@@ -19,7 +16,6 @@ export function Button({
       href={href}
     >
       {children}
-      <Arrow />
     </Link>
   );
 }
@@ -90,19 +86,10 @@ export function PhotoPlaceholder({
         />
       ) : (
         <>
-          <div className="photo-frame" aria-hidden="true">
-            <svg viewBox="0 0 120 90" fill="none">
-              <path
-                d="M8 70 38 35l23 25 17-17 34 27M16 12h88v66H16z"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <circle cx="82" cy="29" r="8" stroke="currentColor" />
-            </svg>
-          </div>
+          <div className="photo-frame" aria-hidden="true" />
           <span className="photo-caption">
             {label}
-            <small>Espacio reservado para fotografía real</small>
+            <small>Fotografía por incorporar</small>
           </span>
         </>
       )}

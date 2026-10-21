@@ -74,7 +74,7 @@ export default function Header() {
           ))}
         </nav>
         <Link className="header-cta" href="/comunidad">
-          Quiero sumarme <span aria-hidden="true">↗</span>
+          Quiero sumarme
         </Link>
         <button
           ref={toggle}
@@ -98,7 +98,6 @@ export default function Header() {
                 aria-current={path === href ? "page" : undefined}
               >
                 {label}
-                <span aria-hidden="true">↗</span>
               </Link>
             ))}
             <Link
@@ -106,7 +105,7 @@ export default function Header() {
               href="/comunidad"
               onClick={() => setOpen(false)}
             >
-              Quiero sumarme ↗
+              Quiero sumarme
             </Link>
           </nav>
         </div>

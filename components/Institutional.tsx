@@ -13,7 +13,7 @@ export function AllianceStory({
   return (
     <div className="alliance-story">
       <div className="alliance-mark">
-        <span>ALIANZA FME</span>
+        <span>Alianza con FME</span>
         {alliance.logo ? (
           <Image
             src={alliance.logo}
@@ -24,10 +24,7 @@ export function AllianceStory({
           />
         ) : (
           <>
-            <strong>
-              {alliance.name}
-              <span className="gold">↗</span>
-            </strong>
+            <strong>{alliance.name}</strong>
             <small>
               Identidad visual de la alianza pendiente de incorporar
             </small>
@@ -35,7 +32,6 @@ export function AllianceStory({
         )}
       </div>
       <div>
-        <p className="eyebrow">VÍNCULOS QUE ACERCAN OPORTUNIDADES</p>
         <h3>{alliance.name}</h3>
         <p>{alliance.description}</p>
         <p>{alliance.action}</p>
@@ -50,7 +46,7 @@ export function AllianceStory({
           </a>
         )}
         <Link className="text-link" href="/alianzas#propuesta">
-          Construyamos una alianza ↗
+          Acercá una propuesta →
         </Link>
       </div>
     </div>
@@ -60,8 +56,7 @@ export function Collaborators() {
   return (
     <section className="section">
       <SectionHeading
-        eyebrow="UNA RED QUE ACOMPAÑA"
-        title="Quienes hacen su aporte también tienen su lugar."
+        title="Colaboradores de la Fundación"
         description="Un espacio para reconocer a las empresas, profesionales, instituciones, organizaciones y personas que colaboran con FME."
       />
       <div className="collaborator-grid">
@@ -97,7 +92,6 @@ export function Projects() {
   return (
     <section id="proyectos" className="section">
       <SectionHeading
-        eyebrow="CONSTRUIR EN COMUNIDAD"
         title="Proyectos para acompañar"
         description="Las iniciativas se publicarán cuando sus objetivos y formas de colaboración estén confirmados."
       />
@@ -138,11 +132,10 @@ export function ContributionCTA() {
   return (
     <section className="final-cta">
       <div className="container">
-        <p className="eyebrow">HAGAMOS EL PRÓXIMO PASO JUNTAS</p>
         <h2>
-          Tu próximo paso
+          Conocé FME.
           <br />
-          puede empezar acá.
+          Encontrá tu lugar.
         </h2>
         <div className="actions">
           <Button href="/comunidad">Quiero ser socia</Button>
@@ -151,9 +144,6 @@ export function ContributionCTA() {
           </Button>
         </div>
       </div>
-      <span className="cta-star" aria-hidden="true">
-        ✳
-      </span>
     </section>
   );
 }

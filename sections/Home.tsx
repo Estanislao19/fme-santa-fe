@@ -35,7 +35,7 @@ export default function Home() {
             <div className="actions">
               <Button href="/comunidad">Quiero sumarme</Button>
               <Link className="text-link" href="/socias">
-                Conocé a nuestras socias ↗
+                Conocé a nuestras socias
               </Link>
             </div>
             <div className="hero-footnote">
@@ -46,7 +46,7 @@ export default function Home() {
           <div className="hero-visual">
             <div className="hero-visual-label">
               <span>MUJERES QUE HACEN</span>
-              <span>SANTA FE, ARGENTINA ↗</span>
+              <span>SANTA FE, ARGENTINA</span>
             </div>
             <PhotoPlaceholder
               label="Nuestra comunidad, en primera persona"
@@ -59,9 +59,6 @@ export default function Home() {
                 <br />
                 Una red para acompañarnos.
               </span>
-              <span className="hero-caption-star" aria-hidden="true">
-                ✳
-              </span>
             </div>
           </div>
         </div>
@@ -69,13 +66,9 @@ export default function Home() {
       <div className="principles-strip">
         <div className="container">
           <span>COMUNIDAD</span>
-          <b aria-hidden="true">✳</b>
           <span>VISIBILIDAD</span>
-          <b aria-hidden="true">✳</b>
           <span>FORMACIÓN</span>
-          <b aria-hidden="true">✳</b>
           <span>OPORTUNIDADES</span>
-          <b aria-hidden="true">✳</b>
           <span>ACOMPAÑAMIENTO</span>
         </div>
       </div>
@@ -86,14 +79,15 @@ export default function Home() {
             variant="sand"
             image={media.introduction}
           />
-          <span className="photo-index">01 / NUESTRA COMUNIDAD</span>
+          <span className="photo-index">
+            Fundación Mujeres Emprendedoras · Santa Fe
+          </span>
         </div>
         <div className="intro-copy">
           <p className="eyebrow">SOMOS FME</p>
           <h2>
             Una comunidad
-            <br />
-            para crecer juntas.
+            <br /> para crecer juntas.
           </h2>
           <p className="lede">
             Detrás de cada emprendimiento hay una mujer, una historia y mucho
@@ -106,19 +100,18 @@ export default function Home() {
             y generar oportunidades.
           </p>
           <Link className="text-link" href="/nosotras">
-            Conocé nuestra historia ↗
+            Conocé nuestra historia →
           </Link>
         </div>
       </section>
-      <section className="section section-cream">
+      <section className="section section-cream home-members">
         <div className="container">
           <SectionHeading
-            eyebrow="ELLAS SON PROTAGONISTAS"
             title="Conocé a las mujeres que hacen FME"
             description="Elegir sus productos, contratar sus servicios y recomendar su trabajo también es construir comunidad."
           >
             <Link className="text-link" href="/socias">
-              Ver todas las emprendedoras ↗
+              Ver todas las emprendedoras →
             </Link>
           </SectionHeading>
           <div className="member-grid">
@@ -131,11 +124,10 @@ export default function Home() {
           </div>
           <div className="directory-prompt">
             <div>
-              <span className="eyebrow">ENCONTRÁ LO QUE ESTÁS BUSCANDO</span>
-              <h3>Un mundo de emprendimientos, cerca tuyo.</h3>
+              <h3>Encontrá un emprendimiento por rubro.</h3>
             </div>
             <Link className="text-link" href="/socias">
-              Contratá servicios de nuestras socias ↗
+              Explorar el directorio
             </Link>
           </div>
           <div className="category-links">
@@ -148,20 +140,18 @@ export default function Home() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 {category}
-                <span aria-hidden="true">↗</span>
               </Link>
             ))}
           </div>
         </div>
       </section>
-      <section className="section container">
+      <section className="section container home-training">
         <SectionHeading
-          eyebrow="HERRAMIENTAS PARA EL CAMINO"
-          title="Aprender también es emprender"
-          description="Un espacio para incorporar conocimientos, compartir experiencias y seguir creciendo."
+          title="Formación para tu emprendimiento"
+          description="Capacitaciones y encuentros para incorporar herramientas, hacer consultas y compartir experiencias."
         >
           <Link className="text-link" href="/capacitaciones">
-            Explorá las capacitaciones ↗
+            Todas las capacitaciones →
           </Link>
         </SectionHeading>
         <TrainingCard training={trainings[0]} />
@@ -169,31 +159,28 @@ export default function Home() {
       <section className="community-band">
         <div className="container community-layout">
           <div>
-            <p className="eyebrow">EL VALOR DE PERTENECER</p>
-            <h2>
-              Emprender acompañada
-              <br />
-              cambia todo.
-            </h2>
+            <p className="eyebrow">SER PARTE DE FME</p>
+            <h2>Una red para compartir experiencias y contactos.</h2>
           </div>
           <div>
             <p>
-              Una conversación puede acercar una idea. Un encuentro, abrir una
-              puerta. En FME queremos que cada emprendedora encuentre un lugar
-              para compartir su camino.
+              Conocer a otras emprendedoras, conversar sobre el trabajo de cada
+              una y acercar propuestas. Eso buscamos en los espacios de
+              encuentro de la Fundación.
             </p>
-            <Button href="/comunidad">Quiero ser parte</Button>
+            <Link className="text-link light" href="/comunidad">
+              Qué significa ser socia →
+            </Link>
           </div>
         </div>
       </section>
-      <section className="section container">
+      <section className="section container home-alliances">
         <SectionHeading
-          eyebrow="VÍNCULOS QUE ABREN CAMINOS"
-          title="Crecer también es crear alianzas"
+          title="Alianzas que acercan oportunidades"
           description="Conectamos con empresas e instituciones para acercar oportunidades a nuestra comunidad."
         >
           <Link className="text-link" href="/alianzas">
-            Conocé nuestras alianzas ↗
+            Conocé las alianzas →
           </Link>
         </SectionHeading>
         <AllianceStory />
@@ -201,10 +188,13 @@ export default function Home() {
       <section className="section section-cream">
         <div className="container contribution-home">
           <div>
-            <p className="eyebrow">CADA APORTE TIENE UN LUGAR</p>
-            <h2>Hay muchas formas de hacer crecer esta comunidad.</h2>
+            <h2>¿Cómo podés colaborar?</h2>
+            <p>
+              Con tiempo, conocimientos, servicios o un aporte. Hay distintas
+              formas de acompañar el trabajo de FME.
+            </p>
             <Link className="text-link" href="/colabora">
-              Quiero colaborar ↗
+              Conocé las opciones →
             </Link>
           </div>
           <div className="contribution-list">
@@ -218,7 +208,6 @@ export default function Home() {
               <Link href={h} key={n}>
                 <span>{n}</span>
                 {t}
-                <span aria-hidden="true">↗</span>
               </Link>
             ))}
           </div>
