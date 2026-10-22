@@ -1,206 +1,236 @@
 import Link from "next/link";
-import { Button, PhotoPlaceholder, SectionHeading } from "@/components/ui";
+import { Button, DemoLabel, PhotoPlaceholder } from "@/components/ui";
 import MemberCard from "@/components/MemberCard";
-import TrainingCard from "@/components/TrainingCard";
-import { AllianceStory, ContributionCTA } from "@/components/Institutional";
+import { ContributionCTA } from "@/components/Institutional";
 import { members } from "@/data/members";
 import { trainings } from "@/data/trainings";
+import { alliances } from "@/data/alliances";
 import { categories } from "@/data/categories";
 import { media } from "@/data/media";
+
 export default function Home() {
+  const training = trainings.find((item) => item.status === "upcoming");
+  const alliance = alliances[0];
   return (
     <>
-      <section className="hero">
+      <section className="hero" aria-labelledby="home-title">
         <div className="container hero-layout">
           <div className="hero-copy">
-            <p className="eyebrow">
-              <span className="tiny-line" /> FUNDACIÓN MUJERES EMPRENDEDORAS ·
-              SANTA FE
-            </p>
-            <h1>
-              Cuando una
+            <p className="eyebrow">Mujeres que impulsan a mujeres</p>
+            <h1 id="home-title">
+              Juntas, hacemos
               <br />
-              mujer crece,
-              <br />
-              <span>
-                crece toda una
-                <br />
-                comunidad.
-              </span>
+              florecer <em>ideas.</em>
             </h1>
             <p>
-              Creamos oportunidades, vínculos y espacios de formación para
-              acompañar y visibilizar a mujeres emprendedoras de Santa Fe.
+              Una comunidad de Santa Fe para conectar, aprender y hacer visible
+              el talento de mujeres emprendedoras.
             </p>
             <div className="actions">
-              <Button href="/comunidad">Quiero sumarme</Button>
-              <Link className="text-link" href="/socias">
-                Conocé a nuestras socias
+              <Button href="/comunidad">Quiero ser parte</Button>
+              <Link className="text-link" href="/nosotras">
+                Conocé FME
               </Link>
             </div>
-            <div className="hero-footnote">
-              <span aria-hidden="true">✳</span> Emprender. Compartir. Crecer
-              juntas.
-            </div>
+            <p className="hero-note">
+              De Santa Fe, con una convicción:
+              <br />
+              <span>cuando una crece, crecemos todas.</span>
+            </p>
           </div>
           <div className="hero-visual">
             <PhotoPlaceholder
-              label="Nuestra comunidad, en primera persona"
+              label="Mujeres que se encuentran y comparten"
               image={media.hero}
               priority
             />
-            <div className="hero-caption">
-              <span>
-                Un lugar para encontrarnos.
-                <br />
-                Una red para acompañarnos.
-              </span>
-            </div>
+            <p className="hero-caption">
+              Un lugar para encontrarnos.
+              <br />
+              <em>Una red para acompañarnos.</em>
+            </p>
           </div>
         </div>
       </section>
-      <div className="principles-strip">
-        <div className="container">
-          <span>Comunidad</span>
-          <span>Visibilidad</span>
-          <span>Formación</span>
-          <span>Oportunidades</span>
-          <span>Acompañamiento</span>
-        </div>
-      </div>
-      <section className="section container intro-grid">
-        <div className="intro-photo">
-          <PhotoPlaceholder
-            label="Encuentros que nos acercan"
-            variant="sand"
-            image={media.introduction}
-          />
-        </div>
-        <div className="intro-copy">
-          <h2>
-            Una comunidad
-            <br /> para crecer juntas.
-          </h2>
-          <p className="lede">
-            Detrás de cada emprendimiento hay una mujer, una historia y mucho
-            por compartir.
-          </p>
-          <p>
-            Somos Fundación Mujeres Emprendedoras, una comunidad de Santa Fe que
-            busca acompañar, capacitar y dar visibilidad a las mujeres y sus
-            emprendimientos. Construimos vínculos para intercambiar experiencias
-            y generar oportunidades.
-          </p>
-          <Link className="text-link" href="/nosotras">
-            Conocé nuestra historia
-          </Link>
+
+      <section className="home-introduction" aria-labelledby="home-about-title">
+        <div className="container editorial-split">
+          <div className="introduction-photo">
+            <PhotoPlaceholder
+              label="Encuentros de nuestra comunidad"
+              variant="sand"
+              image={media.introduction}
+            />
+          </div>
+          <div className="editorial-copy">
+            <span className="chapter" aria-hidden="true">
+              01
+            </span>
+            <h2 id="home-about-title">
+              Detrás de cada idea,
+              <br />
+              <em>hay una mujer.</em>
+            </h2>
+            <p>
+              Somos Fundación Mujeres Emprendedoras. Acompañamos, conectamos y
+              damos visibilidad a mujeres y a sus emprendimientos en Santa Fe.
+            </p>
+            <p>
+              Abrimos espacios para aprender, compartir experiencias y construir
+              oportunidades en comunidad.
+            </p>
+            <Link className="text-link" href="/nosotras">
+              Conocé nuestra historia
+            </Link>
+          </div>
         </div>
       </section>
-      <section className="section section-cream home-members">
+
+      <section className="home-members" aria-labelledby="home-members-title">
         <div className="container">
-          <SectionHeading
-            title="Conocé a las mujeres que hacen FME"
-            description="Elegir sus productos, contratar sus servicios y recomendar su trabajo también es construir comunidad."
-          >
-            <Link className="text-link" href="/socias">
-              Ver todas las emprendedoras
-            </Link>
-          </SectionHeading>
+          <div className="editorial-heading">
+            <div>
+              <span className="chapter" aria-hidden="true">
+                02
+              </span>
+              <h2 id="home-members-title">
+                Talento en
+                <br />
+                <em>nuestra red.</em>
+              </h2>
+            </div>
+            <div>
+              <p>
+                Detrás de cada producto o servicio hay una emprendedora. Conocé
+                su trabajo y su historia.
+              </p>
+              <Link className="text-link" href="/socias">
+                Conocé a todas nuestras socias
+              </Link>
+            </div>
+          </div>
           <div className="member-grid">
             {members
               .filter((member) => member.active)
               .slice(0, 3)
-              .map((m, i) => (
-                <MemberCard key={m.slug} member={m} index={i} />
+              .map((member, index) => (
+                <MemberCard key={member.slug} member={member} index={index} />
               ))}
           </div>
-          <div className="directory-prompt">
-            <div>
-              <h3>Encontrá un emprendimiento por rubro.</h3>
-            </div>
-            <Link className="text-link" href="/socias">
-              Explorar el directorio
-            </Link>
-          </div>
-          <div className="category-links">
-            {categories.map((category, i) => (
+          <nav className="home-rubros" aria-label="Explorar socias por rubro">
+            {categories.map((category) => (
               <Link
-                href={`/socias?rubro=${encodeURIComponent(category)}#directorio`}
                 key={category}
+                href={`/socias?rubro=${encodeURIComponent(category)}#directorio`}
               >
-                <span className="category-index">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
                 {category}
               </Link>
             ))}
-          </div>
+          </nav>
         </div>
       </section>
-      <section className="section container home-training">
-        <SectionHeading
-          title="Formación para tu emprendimiento"
-          description="Capacitaciones y encuentros para incorporar herramientas, hacer consultas y compartir experiencias."
-        >
-          <Link className="text-link" href="/capacitaciones">
-            Todas las capacitaciones
-          </Link>
-        </SectionHeading>
-        <TrainingCard training={trainings[0]} />
-      </section>
-      <section className="community-band">
-        <div className="container community-layout">
-          <div>
-            <h2>Una red para compartir experiencias y contactos.</h2>
-          </div>
-          <div>
-            <p>
-              Conocer a otras emprendedoras, conversar sobre el trabajo de cada
-              una y acercar propuestas. Eso buscamos en los espacios de
-              encuentro de la Fundación.
-            </p>
-            <Link className="text-link light" href="/comunidad">
-              Qué significa ser socia
-            </Link>
-          </div>
-        </div>
-      </section>
-      <section className="section container home-alliances">
-        <SectionHeading
-          title="Alianzas que acercan oportunidades"
-          description="Conectamos con empresas e instituciones para acercar oportunidades a nuestra comunidad."
-        >
-          <Link className="text-link" href="/alianzas">
-            Conocé las alianzas
-          </Link>
-        </SectionHeading>
-        <AllianceStory />
-      </section>
-      <section className="section section-cream">
-        <div className="container contribution-home">
-          <div>
-            <h2>¿Cómo podés colaborar?</h2>
-            <p>
-              Con tiempo, conocimientos, servicios o un aporte. Hay distintas
-              formas de acompañar el trabajo de FME.
-            </p>
-            <Link className="text-link" href="/colabora">
-              Conocé las opciones
-            </Link>
-          </div>
-          <div className="contribution-list">
-            {[
-              ["01", "Un aporte mensual", "/colabora"],
-              ["02", "Apoyar un proyecto", "/colabora#proyectos"],
-              ["03", "Colaborar con un evento", "/contacto"],
-              ["04", "Ser una empresa aliada", "/alianzas#propuesta"],
-              ["05", "Sumar tu tiempo y talento", "/voluntariado"],
-            ].map(([n, t, h]) => (
-              <Link href={h} key={n}>
-                <span>{n}</span>
-                {t}
+
+      <section className="home-learning" aria-labelledby="home-learning-title">
+        <div className="container">
+          <div className="editorial-heading">
+            <div>
+              <span className="chapter" aria-hidden="true">
+                03
+              </span>
+              <h2 id="home-learning-title">
+                Aprender,
+                <br />
+                <em>compartir, crecer.</em>
+              </h2>
+            </div>
+            <div>
+              <p>
+                Ser parte de FME también es encontrarse con otras mujeres,
+                compartir experiencias y sumar herramientas.
+              </p>
+              <Link className="text-link" href="/comunidad">
+                Conocé la comunidad
               </Link>
-            ))}
+            </div>
+          </div>
+          {training && (
+            <article className="learning-feature">
+              <PhotoPlaceholder
+                label="Aprendizajes y encuentros FME"
+                image={training.image}
+                variant="blue"
+              />
+              <div>
+                <p className="activity-date">
+                  Próxima capacitación · {training.date}
+                </p>
+                <h3>{training.title}</h3>
+                <p>{training.description}</p>
+                {training.demo && <DemoLabel />}
+                <div className="actions">
+                  <Button href={`/capacitaciones/${training.slug}`}>
+                    Ver capacitación
+                  </Button>
+                  <Link
+                    className="text-link"
+                    href={`/capacitaciones/${training.slug}#inscripcion`}
+                  >
+                    Inscribirme
+                  </Link>
+                </div>
+              </div>
+            </article>
+          )}
+          <div className="section-end">
+            <Link className="text-link" href="/capacitaciones">
+              Ver todas las capacitaciones
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="home-partnerships"
+        aria-labelledby="home-partnerships-title"
+      >
+        <div className="container">
+          <div className="editorial-heading">
+            <div>
+              <span className="chapter" aria-hidden="true">
+                04
+              </span>
+              <h2 id="home-partnerships-title">
+                Las oportunidades
+                <br />
+                <em>también se construyen.</em>
+              </h2>
+            </div>
+            <p>
+              Acercamos empresas, instituciones y personas a nuestra comunidad
+              para generar nuevas posibilidades.
+            </p>
+          </div>
+          {alliance && (
+            <div className="partnership-feature">
+              <div className="partnership-name">
+                <span>Una alianza de FME</span>
+                <h3>{alliance.name}</h3>
+              </div>
+              <div>
+                <p>{alliance.description}</p>
+                <Link className="text-link" href="/alianzas">
+                  Conocé esta colaboración
+                </Link>
+              </div>
+            </div>
+          )}
+          <div className="collaborate-inline">
+            <p>También podés acompañar nuestro trabajo.</p>
+            <div>
+              <Link href="/alianzas#propuesta">Ser empresa aliada</Link>
+              <Link href="/colabora">Colaborar</Link>
+              <Link href="/voluntariado">Ser voluntaria/o</Link>
+            </div>
           </div>
         </div>
       </section>

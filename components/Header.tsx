@@ -4,6 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { navigation } from "@/data/site";
+// La navegación completa permanece en el footer; el primer nivel se concentra en cuatro entradas.
+const primaryNavigation = navigation.filter(([, href]) =>
+  ["/nosotras", "/socias", "/capacitaciones", "/alianzas"].includes(href),
+);
 export default function Header() {
   const [open, setOpen] = useState(false);
   const path = usePathname();
@@ -63,7 +67,7 @@ export default function Header() {
           </span>
         </Link>
         <nav className="desktop-nav" aria-label="Navegación principal">
-          {navigation.map(([label, href]) => (
+          {primaryNavigation.map(([label, href]) => (
             <Link
               key={href}
               href={href}
@@ -74,7 +78,7 @@ export default function Header() {
           ))}
         </nav>
         <Link className="header-cta" href="/comunidad">
-          Quiero sumarme
+          Quiero ser parte
         </Link>
         <button
           ref={toggle}
@@ -90,7 +94,7 @@ export default function Header() {
       {open && (
         <div id="mobile-menu" ref={menu} className="mobile-menu">
           <nav aria-label="Navegación móvil">
-            {navigation.map(([label, href]) => (
+            {primaryNavigation.map(([label, href]) => (
               <Link
                 key={href}
                 href={href}
@@ -105,7 +109,7 @@ export default function Header() {
               href="/comunidad"
               onClick={() => setOpen(false)}
             >
-              Quiero sumarme
+              Quiero ser parte
             </Link>
           </nav>
         </div>

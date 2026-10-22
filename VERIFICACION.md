@@ -1,17 +1,22 @@
-# Verificación de la primera versión
+# Verificación · FME v4 femenina editorial
 
-- `npm install`: completado; auditoría sin vulnerabilidades reportadas.
-- `npm run build`: completado sin errores ni advertencias en el build final.
-- `npm run typecheck`: TypeScript sin errores.
-- `npm run verify`: auditoría de 20 páginas exportadas, 695 enlaces internos, anclas, imágenes y encabezados.
-- Navegador: portada, directorio, páginas institucionales, perfiles y capacitaciones revisados a 375, 390, 430, 768, 1024 y 1440 px; sin desbordamiento horizontal observado.
-- Directorio: filtro por rubro, búsqueda, estado vacío y limpieza comprobados; los enlaces de rubros de portada preseleccionan la categoría.
-- Menú móvil: apertura, navegación y cierre comprobados. Incluye Escape, foco visible, bloqueo del scroll y contención del foco.
-- Cinco formularios: validación y confirmación de demostración comprobadas. Primer campo inválido recibe el foco. Sin integración de envío; controles deshabilitados hasta que se hidrata React para impedir envíos HTML nativos accidentales.
-- Logo: SHA-256 idéntico al archivo original `021ACB2CA95D47CDF0F9388C55101D940AC9D502B4C9FF61A4BD14F4619FBB55`.
+Fecha de revisión: 22 de octubre de 2026.
+
+- `npm run typecheck`: correcto, sin errores TypeScript.
+- `npm run build`: correcto, sin errores ni advertencias del build.
+- `npm run verify`: 20 páginas exportadas y 627 enlaces internos, con revisión de anclas, imágenes y jerarquía de encabezado principal.
+- Navegador: todas las rutas y los seis perfiles de socias revisados a 375, 390, 430, 768, 1024 y 1440 px. Sin scroll horizontal ni encabezados recortados. La curva del hero se ajustó para permanecer dentro de su contenedor.
+- Home: exactamente seis secciones principales. Formación y comunidad se presentan juntas; alianzas y colaboración también. Rubros integrados en Socias.
+- Header: cuatro entradas principales; navegación completa disponible en footer y CTAs.
+- Directorio: búsqueda con normalización de acentos, filtro, estado vacío y limpieza comprobados.
+- Menú móvil: apertura, navegación, cierre, bloqueo del scroll y Escape comprobados. La lógica de contención de foco se conserva.
+- Cinco formularios: campos requeridos, foco en el primer error y confirmación de demostración comprobados. No se envían ni guardan datos.
+- Consola del navegador: sin errores ni advertencias en las páginas revisadas.
+- Logo: archivo original sin modificaciones. SHA-256 `021ACB2CA95D47CDF0F9388C55101D940AC9D502B4C9FF61A4BD14F4619FBB55`.
+- Datos, tipos, slugs, utilidades de metadata, sitemap, robots, adaptador de formularios y lógica de búsqueda/filtros: sin modificaciones.
 
 ## Pendientes de contenido e integración
 
-Fotografías autorizadas, perfiles reales, datos de contacto, sede, autoridades, fechas, precios y condiciones. Formularios, mapa y WhatsApp necesitan sus datos o integración definitiva. Misión, visión y documentos legales se presentan como propuestas pendientes de validación. El sitio no recibe pagos ni envía información personal. La versión permanece sin indexación hasta configurar un dominio definitivo.
+Fotografías autorizadas, perfiles reales, datos de contacto, sede, autoridades, fechas, precios y condiciones. Los textos institucionales propuestos y documentos legales siguen pendientes de aprobación. Formularios, mapa y WhatsApp conservan su estado de integración anterior. Los registros de demostración y `[DATO A CONFIRMAR]` permanecen identificados.
 
-Las fotografías de portada se configuran en `data/media.ts`. Las demás fotografías pertenecen a sus registros en `data/`. Los placeholders no representan fotografías de actividades realizadas.
+Las fotografías principales se configuran en `data/media.ts`; las demás se asignan a sus registros en `data/`. No se emplearon fotografías ilustrativas de la referencia, stock ni imágenes de personas generadas. La versión sigue sin indexación hasta configurar un dominio definitivo.

@@ -20,7 +20,7 @@ export default function Page() {
         title="Un lugar para encontrarnos. Una red para crecer."
         description="Somos Fundación Mujeres Emprendedoras, una comunidad de Santa Fe que acompaña y visibiliza a mujeres y sus emprendimientos."
       />
-      <div className="container">
+      <div className="container about-content">
         <section className="section intro-grid">
           <PhotoPlaceholder label="Las mujeres que hacen FME" variant="sand" />
           <div>

@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Manrope, Source_Sans_3 } from "next/font/google";
+import { Manrope, Playfair_Display } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { site } from "@/data/site";
 import "./globals.css";
-const display = Manrope({
+const display = Playfair_Display({
   subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
 });
-const body = Source_Sans_3({
+const body = Manrope({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",

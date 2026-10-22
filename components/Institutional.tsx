@@ -133,10 +133,11 @@ export function ContributionCTA() {
     <section className="final-cta">
       <div className="container">
         <h2>
-          Conocé FME.
+          Lo que viene,
           <br />
-          Encontrá tu lugar.
+          <em>lo hacemos juntas.</em>
         </h2>
+        <p>Traé tu idea, tu experiencia y tus ganas de formar parte.</p>
         <div className="actions">
           <Button href="/comunidad">Quiero ser socia</Button>
           <Button href="/colabora" secondary>

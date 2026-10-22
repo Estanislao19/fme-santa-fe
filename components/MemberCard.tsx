@@ -23,12 +23,11 @@ export default function MemberCard({
           variant={["sand", "sage", "blue"][index % 3]}
         />
       </Link>
-      <div className="member-category">{member.category}</div>
       <h3>
         <Link href={`/socias/${member.slug}`}>{member.name}</Link>
       </h3>
       <p className="member-name">{member.business}</p>
-      <p>{member.description}</p>
+      <div className="member-category">{member.category}</div>
       {member.demo && <DemoLabel />}
       <div className="member-links">
         <Link href={`/socias/${member.slug}`}>Conocé su historia</Link>

@@ -60,7 +60,7 @@ Completar `site.phone` en formato internacional con código de país y área. El
 
 El mapa es un espacio reservado sin coordenadas inventadas. Reemplazarlo al confirmar la sede.
 
-Copiar `.env.example` a `.env.local` y configurar `NEXT_PUBLIC_SITE_URL` con el origen definitivo. Esto habilita canonical, sitemap y robots indexables. Sin dominio, el sitio queda en `noindex` para evitar indexar la versión de demostración. Revisar también los contenidos DEMO antes de la publicación pública. Las fuentes Manrope y Source Sans 3 se descargan en el build con `next/font` y se sirven localmente.
+Copiar `.env.example` a `.env.local` y configurar `NEXT_PUBLIC_SITE_URL` con el origen definitivo. Esto habilita canonical, sitemap y robots indexables. Sin dominio, el sitio queda en `noindex` para evitar indexar la versión de demostración. Revisar también los contenidos DEMO antes de la publicación pública. Las fuentes Playfair Display (normal y cursiva) y Manrope se descargan en el build con `next/font` y se sirven localmente.
 
 ## Rutas
 
@@ -68,4 +68,12 @@ Copiar `.env.example` a `.env.local` y configurar `NEXT_PUBLIC_SITE_URL` con el 
 
 ## Identidad y contenido
 
-Paleta: petróleo `#2a606d`, azul profundo `#183f48`, mostaza `#e9ac27`, crema `#f6f5ef` y tonos grisáceos. El archivo PNG oficial es la fuente de identidad y no fue redibujado. Se conserva el Instagram facilitado por FME como referencia; no se extrajeron datos no confirmados.
+Paleta v4: petróleo `#285b62`, azul profundo `#244c50`, dorado suave `#dfb656`, marfil `#f9f7f1`, arena y salvia. El archivo PNG oficial es la fuente de identidad y no fue redibujado. Se conserva el Instagram facilitado por FME como referencia; no se extrajeron datos no confirmados.
+
+## Versión v4 · femenina editorial
+
+La Home está organizada en seis momentos: hero, presentación, socias (con rubros integrados), formación + comunidad, alianzas + colaboración y cierre. La navegación principal muestra Nosotras, Socias, Capacitaciones y Alianzas; la navegación completa sigue en el footer. Todas las rutas y formularios permanecen disponibles.
+
+Las fotografías principales se configuran en `data/media.ts`. La versión no incluye fotografías de stock ni personas generadas. Los espacios curvos se adaptan automáticamente al incorporar las imágenes reales autorizadas.
+
+Ver `CAMBIOS-V4.md` y `VERIFICACION.md` para el resumen de diseño y los controles de esta entrega.

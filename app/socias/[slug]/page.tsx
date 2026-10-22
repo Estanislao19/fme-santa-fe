@@ -35,15 +35,16 @@ export default async function Page({
     <>
       <PageHero
         eyebrow={`NUESTRAS SOCIAS / ${m.category}`}
-        title={m.business}
-        description={m.description}
+        title={m.name}
+        description={m.business}
       >
         {m.demo && <DemoLabel />}
       </PageHero>
-      <section className="section container profile-grid">
+      <section className="section container profile-grid member-profile">
         <PhotoPlaceholder label={m.name} image={m.image} variant="sand" />
         <div>
-          <h2>{m.name}</h2>
+          <h2>Su historia</h2>
+          <p>{m.description}</p>
           <p className="lede">{m.story}</p>
           <h3>Qué ofrece</h3>
           <ul className="plain-list">
