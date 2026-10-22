@@ -2,6 +2,7 @@ import Form from "@/components/Forms";
 import { PageHero, SectionHeading, PhotoPlaceholder } from "@/components/ui";
 import { benefits } from "@/data/content";
 import { pageMetadata } from "@/utils/metadata";
+import { media } from "@/data/media";
 export const metadata = pageMetadata(
   "Sumate a la comunidad",
   "Conocé qué significa ser parte de FME y acercanos tu emprendimiento.",
@@ -35,6 +36,7 @@ export default function Page() {
           </div>
           <PhotoPlaceholder
             label="Un lugar para tu emprendimiento"
+            image={media.introduction}
             variant="sage"
           />
         </section>

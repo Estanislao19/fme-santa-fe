@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Training } from "@/types";
 import { DemoLabel, PhotoPlaceholder } from "./ui";
+import { media } from "@/data/media";
 export default function TrainingCard({ training }: { training: Training }) {
   return (
     <article
@@ -13,7 +14,7 @@ export default function TrainingCard({ training }: { training: Training }) {
               ? "Memoria de nuestros encuentros"
               : "Aprender y compartir"
           }
-          image={training.image}
+          image={training.image || media.training}
           variant="blue"
         />
       </Link>

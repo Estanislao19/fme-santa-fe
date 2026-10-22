@@ -9,6 +9,7 @@ import {
 } from "@/components/ui";
 import { whatsappLink } from "@/utils/links";
 import { pageMetadata } from "@/utils/metadata";
+import { memberPhoto, media } from "@/data/media";
 export function generateStaticParams() {
   return members.map((m) => ({ slug: m.slug }));
 }
@@ -41,7 +42,7 @@ export default async function Page({
         {m.demo && <DemoLabel />}
       </PageHero>
       <section className="section container profile-grid member-profile">
-        <PhotoPlaceholder label={m.name} image={m.image} variant="sand" />
+        <PhotoPlaceholder label={m.name} image={memberPhoto(m)} variant="sand" />
         <div>
           <h2>Su historia</h2>
           <p>{m.description}</p>
@@ -78,7 +79,7 @@ export default async function Page({
       </section>
       <section className="section container">
         <h2>Una mirada a su trabajo</h2>
-        <PhotoGallery images={m.gallery} label="Galería del emprendimiento" />
+        <PhotoGallery images={m.gallery.length ? m.gallery : media.activities.slice(1, 3)} label="Galería del emprendimiento" />
         <Link className="text-link" href="/socias">
           ← Volver al directorio
         </Link>

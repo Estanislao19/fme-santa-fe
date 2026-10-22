@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Member } from "@/types";
 import { DemoLabel, PhotoPlaceholder } from "./ui";
 import { whatsappLink } from "@/utils/links";
+import { memberPhoto } from "@/data/media";
 export default function MemberCard({
   member,
   index = 0,
@@ -19,7 +20,7 @@ export default function MemberCard({
       >
         <PhotoPlaceholder
           label={member.name}
-          image={member.image}
+          image={memberPhoto(member)}
           variant={["sand", "sage", "blue"][index % 3]}
         />
       </Link>
@@ -30,7 +31,7 @@ export default function MemberCard({
       <div className="member-category">{member.category}</div>
       {member.demo && <DemoLabel />}
       <div className="member-links">
-        <Link href={`/socias/${member.slug}`}>Conocé su historia</Link>
+        <Link href={`/socias/${member.slug}`}>Conocer a {member.name}</Link>
         {phone && <a href={phone}>Contactar</a>}
         {member.instagram && (
           <a href={member.instagram} target="_blank" rel="noopener noreferrer">

@@ -2076,3 +2076,98 @@ ol {
     transition: none !important;
   }
 }
+
+/* v5: multimedia dentro de los seis momentos de v4. */
+.media-demo-label {
+  background: #faf7edef; color: #254f53; font: 500 9px/1.5 var(--font-body), sans-serif;
+  padding: 5px 9px; letter-spacing: .015em; max-width: calc(100% - 24px);
+}
+.photo-demo { position: absolute; bottom: 12px; left: 12px; z-index: 1; }
+.motion-media { position: relative; isolation: isolate; overflow: hidden; background: #e3e7dc; min-width: 0; }
+.motion-media > img, .motion-media > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.motion-toolbar { position: absolute; z-index: 2; bottom: 14px; left: 14px; right: 14px; display: flex; gap: 8px; align-items: center; justify-content: space-between; }
+.motion-toolbar button { flex-shrink: 0; background: #f8f5eb; color: var(--deep); border: 1px solid #b3b5a6; font-size: 10px; min-height: 44px; padding: 8px 13px; cursor: pointer; }
+.hero-visual .motion-media { height: 470px; border-radius: 48% 48% 39% 10%; }
+.hero-visual .motion-toolbar { left: 11%; right: 16%; bottom: 16%; flex-wrap: wrap; }
+.hero { padding-block: 52px 60px; }
+.home-introduction, .home-learning { padding-block: 65px; }
+.introduction-photo .photo-placeholder { height: 330px; }
+.home-members, .home-partnerships { padding-block: 65px 45px; }
+.editorial-heading { margin-bottom: 32px; }
+.editorial-split, .editorial-heading, .learning-feature { min-width: 0; }
+.editorial-split > *, .editorial-heading > *, .learning-feature > * { min-width: 0; }
+.editorial-carousel { min-width: 0; }
+.carousel-track { display: flex; gap: 26px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: #a8b4a1 transparent; padding-bottom: 13px; scroll-padding-inline: 0; }
+.carousel-slide { flex: 0 0 calc((100% - 78px) / 3.2); min-width: 0; scroll-snap-align: start; }
+.home-members .member-card:nth-child(n) { padding-top: 0; }
+.carousel-slide .member-card .photo-placeholder { height: auto; aspect-ratio: 4 / 5; }
+.carousel-slide .member-card h3 { margin-top: 15px; font-size: 25px; }
+.carousel-slide .member-links { padding-top: 10px; margin-top: 12px; }
+.carousel-navigation { display: flex; align-items: center; gap: 20px; padding-top: 9px; font-size: 10px; color: var(--deep); }
+.carousel-hint { margin-right: auto; color: var(--muted); }
+.carousel-count { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.carousel-buttons { display: flex; gap: 8px; }
+.carousel-buttons button { font-size: 21px; background: transparent; border: 0; border-bottom: 1px solid #b5bea8; color: var(--deep); min-width: 44px; min-height: 44px; cursor: pointer; }
+.carousel-buttons button:disabled { opacity: .3; cursor: default; }
+.home-rubros { margin-top: 22px; padding-top: 18px; }
+.learning-visual > .motion-media { height: 260px; border-top-right-radius: 65px; }
+.learning-visual .editorial-carousel { margin-top: 13px; }
+.carousel-compact .carousel-track { gap: 12px; padding-bottom: 6px; }
+.carousel-compact .carousel-slide { flex-basis: calc((100% - 30px) / 3.2); }
+.carousel-compact .photo-placeholder { min-height: 0; height: auto; aspect-ratio: 1.4; }
+.carousel-compact .photo-demo { font-size: 7px; padding: 3px 5px; left: 5px; bottom: 5px; }
+.carousel-compact .carousel-navigation { padding-top: 0; }
+.carousel-compact .carousel-hint { font-size: 9px; }
+.section-end { margin-top: 20px; }
+.partnership-name { display: grid; grid-template-columns: 130px 1fr; gap: 5px 23px; align-items: center; }
+.partnership-name .photo-placeholder { grid-row: span 2; min-height: 0; height: 140px; }
+.partnership-name > span { align-self: end; }
+.partnership-name h3 { align-self: start; margin: 0; font-size: 30px; }
+.partnership-feature { gap: 40px; padding-block: 22px; margin-block: 10px 24px; }
+.partnership-name .photo-demo { font-size: 7px; left: 5px; bottom: 5px; padding: 3px 5px; }
+.final-cta { padding-block: 65px; }
+.directory-more { text-align: center; margin-top: 30px; }
+.directory-more p { font-size: 12px; color: var(--muted); }
+.photo-gallery:has(> div:nth-child(2)) { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; }
+.photo-gallery:has(> div:nth-child(2)) > .photo-placeholder { flex: 0 0 45%; min-width: 0; height: 250px; scroll-snap-align: start; }
+@media (min-width: 769px) and (max-width: 1100px) {
+  .carousel-slide { flex-basis: calc((100% - 42px) / 2.2); }
+  .hero-visual .motion-media { height: 430px; }
+  .partnership-name { grid-template-columns: 100px 1fr; gap: 12px; }
+  .partnership-name h3 { font-size: 26px; }
+}
+@media (max-width: 768px) {
+  .hero { padding-block: 32px 38px; }
+  .hero-layout { gap: 24px; }
+  .hero-note { margin-top: 24px; }
+  .hero-visual .motion-media { height: 320px; }
+  .hero-caption { margin-top: 14px; }
+  .hero-visual .motion-toolbar { left: 9%; right: 10%; bottom: 12%; gap: 5px; }
+  .hero-visual .motion-toolbar .media-demo-label { font-size: 8px; }
+  .home-introduction, .home-learning, .home-members, .home-partnerships { padding-block: 42px; }
+  .editorial-split { gap: 24px; }
+  .introduction-photo { width: 100%; padding: 0; }
+  .introduction-photo .photo-placeholder { height: 195px; border-radius: 65px 2px 2px 2px; }
+  .editorial-copy h2 { margin-bottom: 18px; }
+  .editorial-heading { margin-bottom: 26px; gap: 16px; }
+  .chapter { margin-bottom: 16px; }
+  .carousel-track { gap: 18px; }
+  .carousel-slide { flex-basis: 85%; }
+  .carousel-slide .member-card h3 { font-size: 27px; }
+  .home-rubros { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 9px; }
+  .home-rubros a { flex-shrink: 0; min-height: 40px; display: inline-flex; align-items: center; }
+  .learning-feature { gap: 24px; }
+  .learning-visual > .motion-media { height: 210px; }
+  .carousel-compact .carousel-slide { flex-basis: 43%; }
+  .carousel-compact .photo-placeholder { aspect-ratio: 1.7; }
+  .carousel-compact .carousel-navigation { gap: 10px; }
+  .partnership-name { grid-template-columns: 110px 1fr; gap: 3px 18px; }
+  .partnership-name h3 { font-size: 28px; }
+  .partnership-name .photo-placeholder { height: 125px; }
+  .partnership-feature { gap: 18px; }
+  .final-cta { padding-block: 44px; }
+  .member-grid .member-card .photo-placeholder { height: auto; aspect-ratio: 4 / 5; max-height: 350px; }
+  .photo-gallery:has(> div:nth-child(2)) > .photo-placeholder { flex-basis: 83%; height: 220px; }
+}
+.hero-visual video, .hero-visual .video-poster { object-position: center 80%; }
+.home-rubros { scrollbar-width: thin; scrollbar-color: #a8b4a1 transparent; }

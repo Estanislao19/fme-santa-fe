@@ -12,6 +12,7 @@ function normalize(value: string) {
 export default function MemberDirectory() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("Todas");
+  const [visibleCount, setVisibleCount] = useState(3);
   useEffect(() => {
     const requested = new URLSearchParams(window.location.search).get("rubro");
     if (requested && categories.some((item) => item === requested))
@@ -42,7 +43,7 @@ export default function MemberDirectory() {
             type="search"
             placeholder="Buscar por nombre, servicio o emprendimiento…"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => { setSearch(e.target.value); setVisibleCount(3); }}
           />
         </div>
         <div className="filters" role="group" aria-label="Filtrar por rubro">
@@ -50,7 +51,7 @@ export default function MemberDirectory() {
             <button
               key={c}
               aria-pressed={category === c}
-              onClick={() => setCategory(c)}
+              onClick={() => { setCategory(c); setVisibleCount(3); }}
             >
               {c}
             </button>
@@ -61,11 +62,11 @@ export default function MemberDirectory() {
         {filtered.length}{" "}
         {filtered.length === 1 ? "emprendimiento" : "emprendimientos"}
         {filtered.some((member) => member.demo) &&
-          " · Incluye perfiles de demostración"}
+          " · Perfiles y fotografías DEMO; no representan socias reales de FME"}
       </p>
       {filtered.length ? (
         <div className="member-grid">
-          {filtered.map((m, i) => (
+          {filtered.slice(0, visibleCount).map((m, i) => (
             <MemberCard key={m.slug} member={m} index={i} />
           ))}
         </div>
@@ -84,6 +85,10 @@ export default function MemberDirectory() {
           </button>
         </div>
       )}
+      {filtered.length > 0 && <div className="directory-more">
+        <p role="status">Mostrando {Math.min(visibleCount, filtered.length)} de {filtered.length}</p>
+        {visibleCount < filtered.length && <button type="button" className="button button-secondary" onClick={() => setVisibleCount(count => count + 3)}>Mostrar más socias</button>}
+      </div>}
     </>
   );
 }

@@ -8,6 +8,7 @@ import { team } from "@/data/team";
 import { values } from "@/data/content";
 import { site, UNKNOWN } from "@/data/site";
 import { pageMetadata } from "@/utils/metadata";
+import { media } from "@/data/media";
 export const metadata = pageMetadata(
   "Nosotras",
   "Conocé a Fundación Mujeres Emprendedoras, su comunidad y su equipo en Santa Fe.",
@@ -22,7 +23,7 @@ export default function Page() {
       />
       <div className="container about-content">
         <section className="section intro-grid">
-          <PhotoPlaceholder label="Las mujeres que hacen FME" variant="sand" />
+          <PhotoPlaceholder label="Las mujeres que hacen FME" image={media.introduction} variant="sand" />
           <div>
             <h2>Una comunidad de emprendedoras en Santa Fe.</h2>
             <p className="lede">
@@ -96,13 +97,13 @@ export default function Page() {
         <section className="section">
           <SectionHeading
             title="Nuestro equipo"
-            description="Los nombres, las fotografías y la composición de las autoridades están pendientes de confirmación."
+            description="Los nombres, las fotografías y la composición de las autoridades están pendientes de confirmación. Las imágenes DEMO son ilustrativas y no representan al equipo de FME."
           />
           <div className="team-grid">
-            {team.map((p) => (
+            {team.map((p, index) => (
               <article key={p.role}>
                 <PhotoPlaceholder
-                  image={p.image}
+                  image={p.image || Object.values(media.members)[index] || media.team}
                   label={`Fotografía · ${p.role}`}
                   variant="sage"
                 />

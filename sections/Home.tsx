@@ -7,6 +7,8 @@ import { trainings } from "@/data/trainings";
 import { alliances } from "@/data/alliances";
 import { categories } from "@/data/categories";
 import { media } from "@/data/media";
+import EditorialCarousel from "@/components/EditorialCarousel";
+import EditorialVideo from "@/components/EditorialVideo";
 
 export default function Home() {
   const training = trainings.find((item) => item.status === "upcoming");
@@ -39,11 +41,7 @@ export default function Home() {
             </p>
           </div>
           <div className="hero-visual">
-            <PhotoPlaceholder
-              label="Mujeres que se encuentran y comparten"
-              image={media.hero}
-              priority
-            />
+            <EditorialVideo media={media.videos.hero} priority />
             <p className="hero-caption">
               Un lugar para encontrarnos.
               <br />
@@ -109,14 +107,13 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="member-grid">
+          <EditorialCarousel label="Socias de nuestra red">
             {members
               .filter((member) => member.active)
-              .slice(0, 3)
               .map((member, index) => (
                 <MemberCard key={member.slug} member={member} index={index} />
               ))}
-          </div>
+          </EditorialCarousel>
           <nav className="home-rubros" aria-label="Explorar socias por rubro">
             {categories.map((category) => (
               <Link
@@ -155,11 +152,12 @@ export default function Home() {
           </div>
           {training && (
             <article className="learning-feature">
-              <PhotoPlaceholder
-                label="Aprendizajes y encuentros FME"
-                image={training.image}
-                variant="blue"
-              />
+              <div className="learning-visual">
+                <EditorialVideo media={media.videos.activity} />
+                <EditorialCarousel label="Galería ilustrativa de actividades" compact>
+                  {media.activities.map(image => <PhotoPlaceholder key={image} image={image} label="DEMO: actividad ilustrativa; no es una actividad de FME" />)}
+                </EditorialCarousel>
+              </div>
               <div>
                 <p className="activity-date">
                   Próxima capacitación · {training.date}
@@ -183,7 +181,7 @@ export default function Home() {
           )}
           <div className="section-end">
             <Link className="text-link" href="/capacitaciones">
-              Ver todas las capacitaciones
+              Ver agenda completa
             </Link>
           </div>
         </div>
@@ -213,13 +211,14 @@ export default function Home() {
           {alliance && (
             <div className="partnership-feature">
               <div className="partnership-name">
+                <PhotoPlaceholder image={media.alliance} label="DEMO: colaboración ilustrativa; no muestra a Movify ni a FME" />
                 <span>Una alianza de FME</span>
                 <h3>{alliance.name}</h3>
               </div>
               <div>
                 <p>{alliance.description}</p>
                 <Link className="text-link" href="/alianzas">
-                  Conocé esta colaboración
+                Conocer nuestras alianzas
                 </Link>
               </div>
             </div>

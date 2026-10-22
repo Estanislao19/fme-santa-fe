@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { isDemoMedia } from "@/data/media";
 export function Button({
   href,
   children,
@@ -79,7 +80,7 @@ export function PhotoPlaceholder({
       {image ? (
         <Image
           src={image}
-          alt={label}
+          alt={isDemoMedia(image) ? "DEMO: fotografía ilustrativa de trabajo y comunidad. No representa personas ni actividades de FME." : label}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           priority={priority}
@@ -93,6 +94,7 @@ export function PhotoPlaceholder({
           </span>
         </>
       )}
+      {isDemoMedia(image) && <span className="media-demo-label photo-demo">DEMO · imagen ilustrativa</span>}
     </div>
   );
 }
@@ -107,7 +109,7 @@ export function PhotoGallery({
   label: string;
 }) {
   return (
-    <div className="photo-gallery">
+    <div className="photo-gallery" role="region" aria-label={label} tabIndex={images.length > 1 ? 0 : undefined}>
       {images.length ? (
         images.map((image, i) => (
           <PhotoPlaceholder

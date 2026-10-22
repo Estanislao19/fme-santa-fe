@@ -4,6 +4,7 @@ import { AllianceStory, Collaborators } from "@/components/Institutional";
 import { PhotoGallery } from "@/components/ui";
 import { alliances } from "@/data/alliances";
 import { pageMetadata } from "@/utils/metadata";
+import { media } from "@/data/media";
 export const metadata = pageMetadata(
   "Alianzas y colaboradores",
   "Vínculos con empresas e instituciones para acercar oportunidades a las emprendedoras de Santa Fe.",
@@ -22,7 +23,7 @@ export default function Page() {
             <div key={alliance.name}>
               <AllianceStory alliance={alliance} />
               <PhotoGallery
-                images={alliance.gallery}
+                images={alliance.gallery.length ? alliance.gallery : [media.alliance]}
                 label={`Registro de la alianza con ${alliance.name}`}
               />
             </div>

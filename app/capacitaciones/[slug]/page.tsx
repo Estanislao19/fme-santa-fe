@@ -9,6 +9,7 @@ import {
 } from "@/components/ui";
 import Form from "@/components/Forms";
 import { pageMetadata } from "@/utils/metadata";
+import { media } from "@/data/media";
 export function generateStaticParams() {
   return trainings.map((t) => ({ slug: t.slug }));
 }
@@ -40,7 +41,7 @@ export default async function Page({
       <div className="container">
         <section className="section profile-grid">
           <PhotoPlaceholder
-            image={t.image}
+            image={t.image || media.training}
             label="Encuentro y formación"
             variant="blue"
           />
@@ -85,7 +86,7 @@ export default async function Page({
               pendientes de autorización e incorporación.
             </p>
             <PhotoGallery
-              images={t.gallery}
+              images={t.gallery.length ? t.gallery : media.activities}
               label="Fotografías del encuentro"
             />
           </section>
