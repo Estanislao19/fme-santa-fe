@@ -70,9 +70,11 @@ export function FormField({
 export default function Form({
   kind,
   context,
+  categories,
 }: {
   kind: FormKind;
   context?: string;
+  categories?: string[];
 }) {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [message, setMessage] = useState("");
@@ -82,7 +84,7 @@ export default function Form({
     setReady(true);
   }, []);
   const result = useRef<HTMLDivElement>(null);
-  const fields = formDefinitions[kind];
+  const fields = formDefinitions[kind].map(field => field.name === "rubro" && categories ? { ...field, options: categories } : field);
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;

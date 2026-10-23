@@ -10,7 +10,7 @@ export default function MemberCard({
   member: Member;
   index?: number;
 }) {
-  const phone = member.phone ? whatsappLink(member.phone) : null;
+  const phone = (member.whatsapp || member.phone) ? whatsappLink(member.whatsapp || member.phone) : null;
   return (
     <article className="member-card">
       <Link

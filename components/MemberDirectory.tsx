@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
-import { members } from "@/data/members";
-import { categories } from "@/data/categories";
+import type { Member } from "@/types";
 import MemberCard from "./MemberCard";
 function normalize(value: string) {
   return value
@@ -9,7 +8,7 @@ function normalize(value: string) {
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
 }
-export default function MemberDirectory() {
+export default function MemberDirectory({ members, categories }: { members: Member[]; categories: string[] }) {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("Todas");
   const [visibleCount, setVisibleCount] = useState(3);

@@ -4,9 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { navigation } from "@/data/site";
-// La navegación completa permanece en el footer; el primer nivel se concentra en cuatro entradas.
+// La navegación completa permanece en el footer; el primer nivel incluye Colaborá.
 const primaryNavigation = navigation.filter(([, href]) =>
-  ["/nosotras", "/socias", "/capacitaciones", "/alianzas"].includes(href),
+  ["/nosotras", "/socias", "/capacitaciones", "/alianzas", "/colabora"].includes(href),
 );
 export default function Header() {
   const [open, setOpen] = useState(false);

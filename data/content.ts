@@ -1,21 +1,6 @@
-export const values = [
-  [
-    "Cercanía",
-    "Escuchar, compartir experiencias y construir vínculos de confianza.",
-  ],
-  [
-    "Colaboración",
-    "Conectar saberes y esfuerzos para abrir nuevas oportunidades.",
-  ],
-  [
-    "Visibilidad",
-    "Dar un lugar a las mujeres y a los emprendimientos de la comunidad.",
-  ],
-  [
-    "Aprendizaje",
-    "Promover espacios de formación y el intercambio de conocimientos.",
-  ],
-];
+import { officialValues } from "./institutional";
+// Compatibilidad con consumidores locales: los valores oficiales reemplazan la propuesta anterior.
+export const values = officialValues.map(value => [value.name, value.description]);
 export const benefits = [
   [
     "Formación",
@@ -57,3 +42,4 @@ export const contributionOptions = [
   ],
   ["Voluntariado", "Compartí tu tiempo y tus conocimientos.", "/voluntariado"],
 ];
+

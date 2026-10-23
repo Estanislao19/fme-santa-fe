@@ -1,6 +1,6 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
-import { members } from "@/data/members";
+import { resolvePublicSlug } from "@/lib/content";
 import {
   PageHero,
   PhotoPlaceholder,
@@ -10,17 +10,15 @@ import {
 import { whatsappLink } from "@/utils/links";
 import { pageMetadata } from "@/utils/metadata";
 import { memberPhoto, media } from "@/data/media";
-export function generateStaticParams() {
-  return members.map((m) => ({ slug: m.slug }));
-}
-export const dynamicParams = false;
+export const dynamic = "force-dynamic";
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const m = members.find((m) => m.slug === slug);
+  const resolved = await resolvePublicSlug("members", slug);
+  const m = resolved?.item;
   return m ? pageMetadata(m.business, m.description, `/socias/${slug}`) : {};
 }
 export default async function Page({
@@ -29,9 +27,11 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const m = members.find((m) => m.slug === slug);
+  const resolved = await resolvePublicSlug("members", slug);
+  const m = resolved?.item;
   if (!m) notFound();
-  const phone = m.phone ? whatsappLink(m.phone) : null;
+  if (resolved!.canonical !== slug) permanentRedirect(`/socias/${resolved!.canonical}`);
+  const phone = (m.whatsapp || m.phone) ? whatsappLink(m.whatsapp || m.phone) : null;
   return (
     <>
       <PageHero

@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NETLIFY_NEXT_SKEW_PROTECTION = "true"
+  FME_ALLOW_LOCAL_CONTENT = "false"
+
+# Netlify detecta Next.js y aplica su adaptador OpenNext automáticamente.
+# No agregar un redirect SPA /* -> /index.html ni publicar el viejo directorio out/.

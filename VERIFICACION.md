@@ -1,29 +1,37 @@
-# Verificación · FME v5 multimedia
+# Verificación · FME v6 admin y Colaborá
 
-Fecha: 22 de octubre de 2026.
+23 de octubre de 2026.
 
-- npm run typecheck: correcto, sin errores.
-- npm run build: correcto, todas las rutas generadas.
-- npm run verify: 20 páginas HTML y 628 enlaces internos, con anclas, imágenes y h1 verificados.
-- Navegador: 19 páginas públicas, incluidos los seis perfiles y dos detalles de capacitación, revisadas a 375, 390, 430, 768, 1024 y 1440 px (114 combinaciones). Sin scroll horizontal global, imágenes rotas ni multiplicidad de h1. La página 404 se incluye en el build.
-- Home: exactamente seis secciones principales. Multimedia integrada en los bloques existentes. Sin nuevas secciones ni funcionalidades eliminadas.
-- Carrusel de socias: avance/retroceso, límites, Inicio/Fin y contador probados. Se verificó el recorte de tres más un avance en desktop y uno más un avance en mobile. Scroll táctil nativo por CSS; no se emularon gestos físicos de un teléfono.
-- Galería: desplazamiento, contador y navegación comprobados. Las galerías internas tienen región accesible y foco de teclado.
-- Directorio: tres resultados iniciales, ampliación a seis, filtro Moda, búsqueda de ejemplo 06 aun cuando no aparece inicialmente, estado vacío y limpieza comprobados. Filtro por URL preservado.
-- Videos: posters, muted, playsInline, carga del segundo clip solo al entrar en pantalla, pausa al salir, reproducción, pausa manual y reanudación comprobados. Sin sonido ni servicios de reproducción externos.
-- prefers-reduced-motion y ahorro de datos: rutas de control revisadas en código; conservan poster y requieren reproducción elegida por el usuario. La herramienta de navegador no expone emulación de esas preferencias; no se afirma una prueba de dispositivo físico.
-- Menú móvil: apertura, cierre, Escape y bloqueo de scroll comprobados; lógica original de foco intacta.
-- Cinco formularios: requeridos, foco en primer error y confirmación DEMO comprobados. Sin envío ni almacenamiento, como en v4.
-- Consola: sin errores ni advertencias en la revisión.
-- Logo: intacto. SHA-256 021ACB2CA95D47CDF0F9388C55101D940AC9D502B4C9FF61A4BD14F4619FBB55.
-- Las definiciones de datos, contratos, formularios, metadata, sitemap, robots y navegación no fueron modificados. Solo data/media.ts incorpora el catálogo de multimedia temporal.
+## Completado localmente
 
-## Performance y entrega
+- npm run typecheck: sin errores TypeScript.
+- npm run build: correcto en Next.js dinámico. Se generan las rutas públicas, login/admin, biblioteca y upload; no se utiliza output: export.
+- npm test: cinco pruebas/suites correctas. Validación de campos, límites, slugs y URLs; optimización real de imágenes con rechazo de SVG/archivos inválidos; schema/seed/RLS en PostgreSQL real en WASM (PGlite).
+- SQL/RLS: anónimo no escribe; usuario autenticado no autorizado no escribe ni se concede rol; admin puede crear/editar/archivar en las cinco colecciones; inactivos/borradores/archivados no son públicos; permisos de Storage; revocación del administrador; conflicto de revisión; alias/redirecciones; borrado en cascada; auditoría; seed repetible sin sobreescribir cambios y 14 registros compatibles con el editor.
+- npm run verify: 19 páginas públicas, 492 enlaces/anclas y 15 imágenes locales. Nueve rutas privadas exigen login, upload anónimo devuelve 401, login tiene noindex/no-store y slugs inexistentes devuelven 404.
+- Navegador: 19 páginas públicas más acceso cerrado del admin a 375, 390, 430, 768, 1024 y 1440 px (120 combinaciones). Sin scroll horizontal global, imágenes rotas ni más de un h1.
+- Header móvil: Colaborá presente; apertura/cierre y Escape comprobados.
+- Directorio: búsqueda de ejemplo 06 sobre todos los registros y filtro Moda comprobados. Se conservan Mostrar más y filtros por URL.
+- Cinco formularios públicos: requeridos, foco en primer error y confirmación DEMO comprobados. Siguen sin envío ni almacenamiento. El formulario de asociación usa rubros dinámicos sin cambiar la validación.
+- Home: seis bloques principales; carruseles, videos y galerías v5 conservados. No se añadió una séptima sección.
+- Consola del navegador: sin errores/advertencias en la revisión funcional.
+- Logo sin cambios: SHA-256 021ACB2CA95D47CDF0F9388C55101D940AC9D502B4C9FF61A4BD14F4619FBB55.
+- Los archivos de datos originales, multimedia v5, EditorialCarousel, EditorialVideo y adaptador público de formularios permanecen intactos. Se agrega data/participation.ts para centralizar la nueva comunicación de colaboración.
 
-17 assets DEMO locales (13 fotos, dos posters y dos videos), aproximadamente 1,42 MB en total. Los dos videos suman 794.968 bytes y duran ocho segundos. Fotos optimizadas WebP y carga diferida salvo poster principal. No se agregaron dependencias a package.json ni package-lock.json. No se ejecutó una auditoría Lighthouse ni una prueba en iPhone físico.
+## Pendiente de activación externa
 
-El ZIP FME-v5-multimedia.zip incluye código, configuración, assets y documentación; excluye node_modules, .next, out, .git y cachés. Se ejecutan los pasos habituales npm install, npm run dev y npm run build.
+El usuario confirmó que no existe todavía un proyecto Supabase y pidió preparar configuración y guía. Por tanto:
 
-## Pendientes reales
+- No se creó una cuenta ni un proyecto Supabase externo.
+- No se probaron login/logout, carga remota a Storage ni CRUD mediante un usuario Supabase real.
+- No se hizo una prueba autenticada de los formularios del admin en un teléfono real. Se implementaron estilos y controles adaptables; la revisión de seis anchos cubre público y acceso cerrado.
+- No se desplegó v6 en Netlify ni se afirma una migración de producción ya activa. La URL Sites sigue en v5.
+- Las pruebas PGlite ejercitan el motor PostgreSQL y políticas con roles equivalentes, pero no reemplazan al servicio Auth/Storage remoto.
 
-Material audiovisual definitivo autorizado, perfiles reales, datos de contacto, autoridades, sede, fechas y precios. Los rótulos DEMO, [DATO A CONFIRMAR], estado de integración de formularios y noindex existente permanecen. Ver README y MEDIA-DEMO.md para reemplazar archivos sin tocar varios componentes.
+SUPABASE-NETLIFY.md contiene la configuración, creación del primer administrador y el checklist de aceptación de extremo a extremo. Sin configuración, admin permanece cerrado; no se agregó ningún bypass, usuario de prueba ni backend simulado a la aplicación.
+
+## Alcance de contenido y seguridad
+
+Los formularios públicos no envían; no se agregaron pagos, donaciones simuladas, estadísticas, testimonios ni nuevos datos institucionales. El seed conserva DEMO y DATO A CONFIRMAR. Las imágenes de Storage están destinadas al sitio público; el panel y los datos no publicados requieren autorización. No se usa service role key en la aplicación ni se incluyen secretos en la entrega.
+
+El ZIP contiene código, assets, configuración, SQL, seed y documentación. Excluye node_modules, .next, out, .git y archivos de entorno locales.

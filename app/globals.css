@@ -2171,3 +2171,36 @@ ol {
 }
 .hero-visual video, .hero-visual .video-poster { object-position: center 80%; }
 .home-rubros { scrollbar-width: thin; scrollbar-color: #a8b4a1 transparent; }
+
+/* v6: participación, manteniendo la composición editorial de v5. */
+.participation-editorial { display:grid; grid-template-columns:.8fr 1fr; gap:65px; padding:35px 0; border-block:1px solid var(--line); }
+.participation-editorial h2 { font-size:34px; }
+.participation-organizations { display:flex; align-items:center; justify-content:space-between; gap:40px; }
+.participation-organizations > div { max-width:660px; }
+.participation-organizations .button { flex-shrink:0; }
+.participation-volunteer { padding-block:25px 50px; }
+.collaborator-grid p { font-size:13px; }
+.learning-visual > .photo-placeholder { height:260px; min-height:0; border-top-right-radius:65px; }
+.training-detail-media > .motion-media, .training-detail-media > .photo-placeholder { min-height:400px; height:100%; }
+@media(max-width:1100px) { .desktop-nav { gap:16px; } .desktop-nav a { font-size:11px; } }
+@media(max-width:768px) {
+ .participation-editorial { grid-template-columns:1fr; gap:15px; }
+ .participation-organizations { flex-direction:column; align-items:flex-start; gap:20px; }
+ .participation-organizations .button { white-space:normal; }
+ .learning-visual > .photo-placeholder { height:210px; }
+ .training-detail-media > .motion-media, .training-detail-media > .photo-placeholder { min-height:280px; }
+}
+.companion-list { grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:65px; }
+.companion-list > div { display:grid; grid-template-columns:1fr; align-content:start; }
+.companion-list img { max-width:150px; max-height:75px; object-fit:contain; object-position:left; margin-top:18px; }
+.companion-list p { max-width:55ch; }
+@media(max-width:768px) { .companion-list { grid-template-columns:1fr; gap:15px; } }
+/* Contenido institucional: misma grilla editorial, sin tarjetas. */
+.institutional-text { white-space: pre-line; overflow-wrap: anywhere; }
+.institutional-values { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 3rem; }
+.institutional-values > div { display: grid; grid-template-columns: 2rem minmax(0,1fr); gap: .5rem 1rem; padding: 1.5rem 0; border-top: 1px solid var(--line, #d5dbd6); }
+.institutional-values h3 { font-size: 1.45rem; margin: 0; }
+.institutional-values p { grid-column: 2; margin: 0; }
+.members-intro { max-width: 72ch; margin: 1rem 0 0; }
+.institutional-community p { max-width: 78ch; margin: 1.25rem auto 0; }
+@media(max-width:767px) { .institutional-values { grid-template-columns: minmax(0,1fr); } }

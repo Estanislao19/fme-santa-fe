@@ -2,7 +2,7 @@ import Form from "@/components/Forms";
 import { PageHero } from "@/components/ui";
 import { AllianceStory, Collaborators } from "@/components/Institutional";
 import { PhotoGallery } from "@/components/ui";
-import { alliances } from "@/data/alliances";
+import { getPublicContent } from "@/lib/content";
 import { pageMetadata } from "@/utils/metadata";
 import { media } from "@/data/media";
 export const metadata = pageMetadata(
@@ -10,7 +10,9 @@ export const metadata = pageMetadata(
   "Vínculos con empresas e instituciones para acercar oportunidades a las emprendedoras de Santa Fe.",
   "/alianzas",
 );
-export default function Page() {
+export const dynamic = "force-dynamic";
+export default async function Page() {
+  const alliances = await getPublicContent("alliances");
   return (
     <>
       <PageHero
@@ -23,7 +25,7 @@ export default function Page() {
             <div key={alliance.name}>
               <AllianceStory alliance={alliance} />
               <PhotoGallery
-                images={alliance.gallery.length ? alliance.gallery : [media.alliance]}
+                images={alliance.gallery.length ? alliance.gallery : [alliance.image || media.alliance]}
                 label={`Registro de la alianza con ${alliance.name}`}
               />
             </div>

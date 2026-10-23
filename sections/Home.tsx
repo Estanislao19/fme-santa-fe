@@ -1,18 +1,19 @@
+import { getPublicContent, getCategories } from "@/lib/content";
 import Link from "next/link";
 import { Button, DemoLabel, PhotoPlaceholder } from "@/components/ui";
 import MemberCard from "@/components/MemberCard";
 import { ContributionCTA } from "@/components/Institutional";
-import { members } from "@/data/members";
-import { trainings } from "@/data/trainings";
-import { alliances } from "@/data/alliances";
-import { categories } from "@/data/categories";
 import { media } from "@/data/media";
 import EditorialCarousel from "@/components/EditorialCarousel";
 import EditorialVideo from "@/components/EditorialVideo";
+import { participationOptions } from "@/data/participation";
+import { getInstitutional } from "@/lib/institutional";
 
-export default function Home() {
-  const training = trainings.find((item) => item.status === "upcoming");
-  const alliance = alliances[0];
+export default async function Home() {
+  const [members, trainings, alliances, collaborators, categories, {content}] = await Promise.all([getPublicContent("members"), getPublicContent("trainings"), getPublicContent("alliances"), getPublicContent("collaborators"), getCategories(), getInstitutional()]);
+  const training = trainings.find(item => item.status === "upcoming" && item.featured) || trainings.find(item => item.status === "upcoming");
+  const alliance = alliances.find(item=>item.featured) || collaborators.find(item=>item.featured&&!item.demo) || alliances[0] || collaborators.find(item=>!item.demo);
+  const homeMembers = [...members].sort((a,b)=>Number(!!b.featured)-Number(!!a.featured)).slice(0,8);
   return (
     <>
       <section className="hero" aria-labelledby="home-title">
@@ -69,14 +70,7 @@ export default function Home() {
               <br />
               <em>hay una mujer.</em>
             </h2>
-            <p>
-              Somos Fundación Mujeres Emprendedoras. Acompañamos, conectamos y
-              damos visibilidad a mujeres y a sus emprendimientos en Santa Fe.
-            </p>
-            <p>
-              Abrimos espacios para aprender, compartir experiencias y construir
-              oportunidades en comunidad.
-            </p>
+            <p className="institutional-text">{content.home_intro}</p>
             <Link className="text-link" href="/nosotras">
               Conocé nuestra historia
             </Link>
@@ -108,7 +102,7 @@ export default function Home() {
             </div>
           </div>
           <EditorialCarousel label="Socias de nuestra red">
-            {members
+            {homeMembers
               .filter((member) => member.active)
               .map((member, index) => (
                 <MemberCard key={member.slug} member={member} index={index} />
@@ -153,9 +147,9 @@ export default function Home() {
           {training && (
             <article className="learning-feature">
               <div className="learning-visual">
-                <EditorialVideo media={media.videos.activity} />
+                {training.video ? <EditorialVideo media={{src:training.video,poster:training.image||media.training,label:training.title,informative:true}} /> : training.image ? <PhotoPlaceholder image={training.image} label={training.title}/> : <EditorialVideo media={media.videos.activity} />}
                 <EditorialCarousel label="Galería ilustrativa de actividades" compact>
-                  {media.activities.map(image => <PhotoPlaceholder key={image} image={image} label="DEMO: actividad ilustrativa; no es una actividad de FME" />)}
+                  {(training.gallery.length ? training.gallery : media.activities).map(image => <PhotoPlaceholder key={image} image={image} label={training.title} />)}
                 </EditorialCarousel>
               </div>
               <div>
@@ -171,7 +165,7 @@ export default function Home() {
                   </Button>
                   <Link
                     className="text-link"
-                    href={`/capacitaciones/${training.slug}#inscripcion`}
+                    href={training.registrationUrl || `/capacitaciones/${training.slug}#inscripcion`}
                   >
                     Inscribirme
                   </Link>
@@ -198,20 +192,19 @@ export default function Home() {
                 04
               </span>
               <h2 id="home-partnerships-title">
-                Las oportunidades
+                Hay muchas formas
                 <br />
-                <em>también se construyen.</em>
+                <em>de acompañar.</em>
               </h2>
             </div>
             <p>
-              Acercamos empresas, instituciones y personas a nuestra comunidad
-              para generar nuevas posibilidades.
+              Tu tiempo, un aporte o una alianza pueden acercar nuevas oportunidades a las mujeres de nuestra comunidad.
             </p>
           </div>
           {alliance && (
             <div className="partnership-feature">
               <div className="partnership-name">
-                <PhotoPlaceholder image={media.alliance} label="DEMO: colaboración ilustrativa; no muestra a Movify ni a FME" />
+                <PhotoPlaceholder image={alliance.image || ("gallery" in alliance ? alliance.gallery[0] : undefined) || media.alliance} label={`Colaboración con ${alliance.name}`} />
                 <span>Una alianza de FME</span>
                 <h3>{alliance.name}</h3>
               </div>
@@ -224,13 +217,12 @@ export default function Home() {
             </div>
           )}
           <div className="collaborate-inline">
-            <p>También podés acompañar nuestro trabajo.</p>
+            <p>Encontrá tu forma de ser parte.</p>
             <div>
-              <Link href="/alianzas#propuesta">Ser empresa aliada</Link>
-              <Link href="/colabora">Colaborar</Link>
-              <Link href="/voluntariado">Ser voluntaria/o</Link>
+              {participationOptions.map(option => <Link key={option.id} href={option.homeHref}>{option.shortTitle}</Link>)}
             </div>
           </div>
+          <Button href="/colabora">Conocé cómo colaborar</Button>
         </div>
       </section>
       <ContributionCTA />

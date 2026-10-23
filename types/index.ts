@@ -10,10 +10,17 @@ export interface Member {
   gallery: string[];
   instagram?: string;
   phone?: string;
+  whatsapp?: string;
+  featured?: boolean;
+  order?: number;
   active: boolean;
   demo: boolean;
 }
 export interface Training {
+  featured?: boolean;
+  order?: number;
+  video?: string;
+  registrationUrl?: string;
   slug: string;
   title: string;
   description: string;
@@ -38,6 +45,13 @@ export interface TeamPerson {
   image?: string;
 }
 export interface Alliance {
+  slug?: string;
+  featured?: boolean;
+  kind?: string;
+  image?: string;
+  instagram?: string;
+  link?: string;
+  demo?: boolean;
   name: string;
   description: string;
   action: string;
@@ -46,6 +60,11 @@ export interface Alliance {
   gallery: string[];
 }
 export interface Project {
+  kind?: "Proyecto" | "Evento" | "Campaña";
+  date?: string;
+  featured?: boolean;
+  cta?: string;
+  ctaUrl?: string;
   slug: string;
   title: string;
   description: string;
@@ -56,6 +75,11 @@ export interface Project {
   demo: boolean;
 }
 export interface Collaborator {
+  slug?: string;
+  description?: string;
+  image?: string;
+  instagram?: string;
+  featured?: boolean;
   name: string;
   kind: string;
   logo?: string;

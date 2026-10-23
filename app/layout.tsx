@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, Playfair_Display } from "next/font/google";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import SiteChrome from "@/components/SiteChrome";
 import { site } from "@/data/site";
 import "./globals.css";
 const display = Playfair_Display({
@@ -58,15 +56,7 @@ export default function RootLayout({
   return (
     <html lang="es-AR" data-scroll-behavior="smooth">
       <body className={`${display.variable} ${body.variable}`}>
-        <a className="skip-link" href="#contenido">
-          Saltar al contenido
-        </a>
-        <Header />
-        <main id="contenido" tabIndex={-1}>
-          {children}
-        </main>
-        <Footer />
-        <WhatsAppButton />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

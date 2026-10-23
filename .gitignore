@@ -3,5 +3,10 @@ node_modules/
 out/
 *.tsbuildinfo
 .env*.local
+.env
+.env.*
+!.env.example
+.netlify/
+supabase/.temp/
 *.tar.gz
 qa/

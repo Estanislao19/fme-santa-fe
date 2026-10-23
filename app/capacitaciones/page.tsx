@@ -1,13 +1,15 @@
 import { PageHero, SectionHeading } from "@/components/ui";
 import TrainingCard from "@/components/TrainingCard";
-import { trainings } from "@/data/trainings";
+import { getPublicContent } from "@/lib/content";
 import { pageMetadata } from "@/utils/metadata";
 export const metadata = pageMetadata(
   "Capacitaciones",
   "Formación, herramientas y encuentros para emprendedoras de Santa Fe.",
   "/capacitaciones",
 );
-export default function Page() {
+export const dynamic = "force-dynamic";
+export default async function Page() {
+  const trainings = await getPublicContent("trainings");
   return (
     <>
       <PageHero
@@ -18,7 +20,7 @@ export default function Page() {
         <section className="section">
           <SectionHeading
             title="Próximas capacitaciones"
-            description="Las propuestas de esta primera versión son demostrativas. Todavía no hay inscripciones abiertas a actividades confirmadas."
+            description={trainings.some(t => t.status === "upcoming" && !t.demo) ? "Consultá la información de cada actividad y su forma de inscripción." : "Las propuestas actuales son demostrativas. Todavía no hay inscripciones abiertas a actividades confirmadas."}
           />
           {trainings
             .filter((t) => t.status === "upcoming")

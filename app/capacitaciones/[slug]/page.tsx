@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { trainings } from "@/data/trainings";
+import { notFound, permanentRedirect } from "next/navigation";
+import { resolvePublicSlug } from "@/lib/content";
 import {
   PageHero,
   DemoLabel,
@@ -10,17 +10,16 @@ import {
 import Form from "@/components/Forms";
 import { pageMetadata } from "@/utils/metadata";
 import { media } from "@/data/media";
-export function generateStaticParams() {
-  return trainings.map((t) => ({ slug: t.slug }));
-}
-export const dynamicParams = false;
+import EditorialVideo from "@/components/EditorialVideo";
+export const dynamic = "force-dynamic";
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const t = trainings.find((t) => t.slug === slug);
+  const resolved = await resolvePublicSlug("trainings", slug);
+  const t = resolved?.item;
   return t
     ? pageMetadata(t.title, t.description, `/capacitaciones/${slug}`)
     : {};
@@ -31,8 +30,10 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const t = trainings.find((t) => t.slug === slug);
+  const resolved = await resolvePublicSlug("trainings", slug);
+  const t = resolved?.item;
   if (!t) notFound();
+  if (resolved!.canonical !== slug) permanentRedirect(`/capacitaciones/${resolved!.canonical}`);
   return (
     <>
       <PageHero title={t.title} description={t.description}>
@@ -40,11 +41,7 @@ export default async function Page({
       </PageHero>
       <div className="container">
         <section className="section profile-grid">
-          <PhotoPlaceholder
-            image={t.image || media.training}
-            label="Encuentro y formación"
-            variant="blue"
-          />
+          <div className="training-detail-media">{t.video ? <EditorialVideo media={{src:t.video,poster:t.image || media.training,label:t.title,informative:true}}/> : <PhotoPlaceholder image={t.image || media.training} label="Encuentro y formación" variant="blue"/>}</div>
           <div>
             <h2>Sobre la propuesta</h2>
             <dl className="detail-list">
@@ -72,11 +69,10 @@ export default async function Page({
             <div>
               <h2>Inscribirme</h2>
               <p>
-                Formulario de demostración. La inscripción se habilitará cuando
-                se confirme la actividad y se conecte el canal de recepción.
+                {t.registrationUrl ? "Completá tu inscripción en el enlace habilitado para esta actividad." : "El formulario conserva su estado de demostración. La inscripción se habilitará cuando se conecte el canal de recepción."}
               </p>
             </div>
-            <Form kind="training" context={t.slug} />
+            {t.registrationUrl ? <a className="button" href={t.registrationUrl} target="_blank" rel="noopener noreferrer">Ir a la inscripción</a> : <Form kind="training" context={t.slug} />}
           </section>
         ) : (
           <section className="section">

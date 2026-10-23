@@ -5,7 +5,7 @@ import {
   Button,
 } from "@/components/ui";
 import { team } from "@/data/team";
-import { values } from "@/data/content";
+import { getInstitutional } from "@/lib/institutional";
 import { site, UNKNOWN } from "@/data/site";
 import { pageMetadata } from "@/utils/metadata";
 import { media } from "@/data/media";
@@ -14,7 +14,9 @@ export const metadata = pageMetadata(
   "Conocé a Fundación Mujeres Emprendedoras, su comunidad y su equipo en Santa Fe.",
   "/nosotras",
 );
-export default function Page() {
+export const dynamic = "force-dynamic";
+export default async function Page() {
+  const {content,values}=await getInstitutional();
   return (
     <>
       <PageHero
@@ -62,34 +64,22 @@ export default function Page() {
         </section>
         <section className="section mission-grid">
           <div>
-            <p className="institutional-label">Misión</p>
-            <h2>Acompañar, conectar y visibilizar.</h2>
-            <p>
-              Promover espacios de formación y vínculos que acompañen a las
-              mujeres emprendedoras y den visibilidad a su trabajo en Santa Fe.
-            </p>
+            <h2>Misión</h2>
+            <p className="institutional-text">{content.mission}</p>
           </div>
           <div>
-            <p className="institutional-label">Visión</p>
-            <h2>Una comunidad con más oportunidades.</h2>
-            <p>
-              Construir una red cercana y colaborativa, en la que las
-              emprendedoras puedan compartir conocimientos y participar en el
-              desarrollo de su comunidad.
-            </p>
+            <h2>Visión</h2>
+            <p className="institutional-text">{content.vision}</p>
           </div>
-          <p className="editorial-note">
-            Redacción institucional propuesta, pendiente de validación por FME.
-          </p>
         </section>
         <section className="section">
           <SectionHeading title="Nuestros valores" />
-          <div className="values-editorial">
-            {values.map(([title, copy], i) => (
-              <div key={title}>
-                <span className="number">0{i + 1}</span>
-                <h3>{title}</h3>
-                <p>{copy}</p>
+          <div className="institutional-values">
+            {values.map((value, i) => (
+              <div key={value.id}>
+                <span className="number">{String(i+1).padStart(2,"0")}</span>
+                <h3>{value.name}</h3>
+                <p>{value.description}</p>
               </div>
             ))}
           </div>

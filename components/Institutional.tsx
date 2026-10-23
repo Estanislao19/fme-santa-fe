@@ -1,14 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { alliances } from "@/data/alliances";
-import { projects } from "@/data/projects";
-import { collaborators } from "@/data/collaborators";
+import { getPublicContent } from "@/lib/content";
 import { DemoLabel, PhotoPlaceholder, SectionHeading, Button } from "./ui";
 import type { Alliance } from "@/types";
 export function AllianceStory({
-  alliance = alliances[0],
+  alliance,
 }: {
-  alliance?: Alliance;
+  alliance: Alliance;
 }) {
   return (
     <div className="alliance-story">
@@ -52,16 +50,19 @@ export function AllianceStory({
     </div>
   );
 }
-export function Collaborators() {
+export async function Collaborators() {
+  const [collaborators, alliances] = await Promise.all([getPublicContent("collaborators"), getPublicContent("alliances")]);
+  const companions = [...alliances.filter(a=>!a.demo), ...collaborators.filter(c=>!c.demo)].sort((a,b)=>Number(!!b.featured)-Number(!!a.featured));
+  if (!companions.length) return null;
   return (
     <section className="section">
       <SectionHeading
-        title="Colaboradores de la Fundación"
-        description="Un espacio para reconocer a las empresas, profesionales, instituciones, organizaciones y personas que colaboran con FME."
+        title="Quienes nos acompañan"
+        description="Empresas, instituciones y personas que acompañan el trabajo de la Fundación."
       />
-      <div className="collaborator-grid">
-        {collaborators.map((c) => (
-          <div key={c.name}>
+      <div className="collaborator-grid companion-list">
+        {companions.map((c) => (
+          <div key={`${"action" in c ? "alliance" : "collaborator"}-${c.slug || c.name}`}>
             <span>{c.kind}</span>
             {c.logo && (
               <Image
@@ -81,6 +82,7 @@ export function Collaborators() {
                 c.name
               )}
             </h3>
+            {c.description && <p>{c.description}</p>}
             {c.demo && <DemoLabel />}
           </div>
         ))}
@@ -88,12 +90,13 @@ export function Collaborators() {
     </section>
   );
 }
-export function Projects() {
+export async function Projects() {
+  const projects = [...await getPublicContent("projects")].sort((a,b)=>Number(!!b.featured)-Number(!!a.featured));
   return (
     <section id="proyectos" className="section">
       <SectionHeading
-        title="Proyectos para acompañar"
-        description="Las iniciativas se publicarán cuando sus objetivos y formas de colaboración estén confirmados."
+        title="Proyectos, eventos y campañas"
+        description="Conocé las iniciativas que necesitan colaboración. Sus objetivos y condiciones se comunican cuando están confirmados."
       />
       {projects.map((p) => (
         <article className="project-card" key={p.slug}>
@@ -104,9 +107,10 @@ export function Projects() {
           />
           <div>
             {p.demo && <DemoLabel />}
+            <small>{p.kind || "Proyecto"}{p.date ? ` · ${p.date}` : ""}</small>
             <h3>{p.title}</h3>
             <p>{p.description}</p>
-            <p>Objetivo: {p.objective}</p>
+            {p.objective && <p>Objetivo: {p.objective}</p>}
             {p.target !== undefined && p.raised !== undefined && (
               <>
                 <progress
@@ -119,8 +123,8 @@ export function Projects() {
                 </p>
               </>
             )}
-            <Button href="/contacto?motivo=Proyectos" secondary>
-              Consultar cómo colaborar
+            <Button href={p.ctaUrl || `/contacto?motivo=${encodeURIComponent(p.title)}`} secondary>
+              {p.cta || "Consultar cómo colaborar"}
             </Button>
           </div>
         </article>
