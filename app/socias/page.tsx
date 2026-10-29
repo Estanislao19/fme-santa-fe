@@ -5,6 +5,8 @@ import { ContributionCTA } from "@/components/Institutional";
 import { pageMetadata } from "@/utils/metadata";
 import { getInstitutional } from "@/lib/institutional";
 import { paragraphs } from "@/lib/admin/institutional-schema";
+import MembershipBenefits from "@/components/MembershipBenefits";
+import Link from "next/link";
 export const metadata = pageMetadata(
   "Nuestras socias",
   "Elegí productos y servicios de las emprendedoras de nuestra comunidad en Santa Fe.",
@@ -21,10 +23,12 @@ export default async function Page() {
         description={intro[0]||""}
       >
         {intro.slice(1).map((text,i)=><p className="members-intro" key={i}>{text}</p>)}
+        <Link className="text-link members-benefits-link" href="#beneficios">Beneficios de ser socia</Link>
       </PageHero>
       <section className="section container" id="directorio">
         <MemberDirectory members={members} categories={categories} />
       </section>
+      <MembershipBenefits />
       <ContributionCTA />
     </>
   );

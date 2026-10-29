@@ -2,8 +2,9 @@ import Link from "next/link";
 import { requireAdmin } from "@/lib/admin/auth";
 import { adminRecords } from "@/lib/admin/data";
 import MediaLibrary from "@/components/admin/MediaLibrary";
+import {benefitImageReferences} from "@/lib/benefits";
 export default async function Page() {
-  const {client}=await requireAdmin();const records=await adminRecords();const references=JSON.stringify(records.map(r=>r.data));
+  const {client}=await requireAdmin();const records=await adminRecords();const references=JSON.stringify([...records.map(r=>r.data),...await benefitImageReferences(client)]);
   const files:{name:string;url:string;referenced:boolean}[]=[];
   for(let offset=0;;offset+=100){
     const {data:folders,error}=await client.storage.from("fme-media").list("",{limit:100,offset,sortBy:{column:"name",order:"asc"}});

@@ -118,6 +118,7 @@ export default async function Home() {
               </Link>
             ))}
           </nav>
+          <div className="home-benefits-note"><p>Ser socia también significa acceder a formación, networking, visibilidad y una red de beneficios exclusivos.</p><Link className="text-link" href="/beneficios">Conocé los beneficios</Link></div>
         </div>
       </section>
 

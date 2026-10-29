@@ -2204,3 +2204,36 @@ ol {
 .members-intro { max-width: 72ch; margin: 1rem 0 0; }
 .institutional-community p { max-width: 78ch; margin: 1.25rem auto 0; }
 @media(max-width:767px) { .institutional-values { grid-template-columns: minmax(0,1fr); } }
+.membership-benefit-areas { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:2rem 4rem; margin-bottom:2rem; }
+.membership-benefit-areas > div { border-top:1px solid var(--line); padding-top:1.5rem; min-width:0; }
+.membership-benefit-areas h3 { font-size:1.6rem; margin-bottom:1rem; }
+.membership-benefit-areas ul { padding-left:1.1rem; }
+.membership-benefit-areas li { margin-bottom:.6rem; }
+.members-benefits-link { display:inline-block; margin-top:1rem; }
+.home-benefits-note { display:flex; align-items:baseline; justify-content:space-between; gap:2rem; border-top:1px solid var(--line); padding-top:1.25rem; margin-top:1.5rem; }
+.home-benefits-note p { max-width:65ch; margin:0; font-size:.95rem; }
+.home-benefits-note a { flex-shrink:0; }
+.benefit-filters { display:flex; flex-wrap:wrap; gap:.5rem 1.4rem; margin-bottom:1rem; }
+.benefit-filters button { border:0; border-bottom:1px solid transparent; background:transparent; color:var(--teal); padding:.7rem 0; min-height:44px; max-width:100%; overflow-wrap:anywhere; cursor:pointer; text-align:left; }
+.benefit-filters button[aria-pressed=true] { border-bottom-color:var(--teal); font-weight:600; }
+.benefit-result { font-size:.85rem; color:var(--muted); }
+.benefit-category { display:grid; grid-template-columns:minmax(160px,1fr) minmax(0,2fr); gap:3rem; border-top:1px solid var(--line); padding:2.5rem 0; }
+.benefit-category h2 { font-size:clamp(1.8rem,3vw,2.6rem); margin:0; overflow-wrap:anywhere; }
+.benefit-entry { display:flex; gap:1.5rem; padding:1.6rem 0; border-bottom:1px solid var(--line); }
+.benefit-entry:first-child { padding-top:0; }
+.benefit-entry:last-child { border-bottom:0; padding-bottom:0; }
+.benefit-entry-copy { flex:1; min-width:0; overflow-wrap:anywhere; }
+.benefit-entry h3 { font-size:1.7rem; margin:0 0 .5rem; }
+.benefit-entry .benefit-offer { font-size:1.12rem; color:var(--teal); margin:.5rem 0; }
+.benefit-logo { width:90px; height:70px; object-fit:contain; flex-shrink:0; }
+.benefit-photo { max-width:100%; width:100%; height:auto; max-height:320px; object-fit:cover; margin:1rem 0; }
+.benefit-featured { color:var(--muted); font-size:.8rem; }
+.benefit-terms summary { cursor:pointer; padding:.65rem 0; min-height:44px; }
+.benefit-links { display:flex; flex-wrap:wrap; gap:1rem; }
+.benefit-links a { text-underline-offset:4px; text-decoration:underline; min-height:44px; display:inline-flex; align-items:center; }
+@media(max-width:767px){
+  .membership-benefit-areas { grid-template-columns:minmax(0,1fr); gap:1.5rem; }
+  .home-benefits-note { flex-direction:column; gap:.7rem; }
+  .benefit-category { grid-template-columns:minmax(0,1fr); gap:1.5rem; padding:2rem 0; }
+  .benefit-entry { flex-direction:column; gap:.75rem; }
+}

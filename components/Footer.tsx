@@ -42,6 +42,7 @@ export default function Footer() {
                   </Link>
                 ))}
               <Link href="/voluntariado">Voluntariado</Link>
+              <Link href="/beneficios">Beneficios</Link>
             </nav>
           </div>
           <div className="footer-contact">

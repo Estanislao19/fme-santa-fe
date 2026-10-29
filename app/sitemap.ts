@@ -9,6 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/",
     ...navigation.map(([, p]) => p),
     "/voluntariado",
+    "/beneficios",
     "/politica-de-privacidad",
     "/terminos-y-condiciones",
     ...members.filter((m) => m.active).map((m) => `/socias/${m.slug}`),

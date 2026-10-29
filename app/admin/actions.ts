@@ -7,6 +7,7 @@ import { sessionClient, clearSessionCookies } from "@/lib/supabase/server";
 import { validateRecord } from "@/lib/admin/validation";
 import { collections, type ContentRecord } from "@/lib/admin/collections";
 import { supabaseConfig } from "@/lib/supabase/config";
+import { benefitImageReferences } from "@/lib/benefits";
 
 export async function login(_previous: { error: string }, form: FormData) {
   const parsed = z.object({ email: z.email(), password: z.string().min(1).max(200) }).safeParse({ email: form.get("email"), password: form.get("password") });
@@ -96,6 +97,9 @@ export async function deleteMedia(url: string) {
     if (JSON.stringify(data).includes(url)) return { ok: false, error: "Esta imagen todavía está en uso. Quitala de las fichas y guardá antes de eliminarla." };
     if (data.length < 500) break;
   }
+  try {
+    if((await benefitImageReferences(client)).includes(url))return {ok:false,error:"Esta imagen está en uso en un beneficio, incluso si está inactivo o archivado. Quitala y guardá antes de eliminarla."};
+  }catch{return {ok:false,error:"No se pudo comprobar si la imagen está en uso en beneficios. No se eliminó."};}
   const { error } = await client.storage.from("fme-media").remove([path]);
   if (error) return { ok: false, error: "No se pudo eliminar el archivo de Storage." };
   revalidatePath("/admin/imagenes");

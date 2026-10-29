@@ -89,3 +89,7 @@ Los formularios públicos continúan sin conexión de envío. Ante un error de g
 ## Contenido institucional
 
 En Configuración podés editar Misión, Visión, síntesis de Home, introducción de Socias y texto de Comunidad. Guardá y esperá la confirmación. Cada valor tiene su propio formulario: nombre, descripción, orden y visibilidad. Un orden menor aparece primero. Para retirarlo, desmarcá «Visible en el sitio» y guardá. No se borra el registro. Podés agregar valores sin modificar código. Si se informa que otra sesión editó el contenido, recargá antes de guardar. Activación y verificación: [CONTENIDO-INSTITUCIONAL.md](CONTENIDO-INSTITUCIONAL.md).
+
+## Beneficios
+
+El menú Beneficios permite crear, editar, activar/desactivar, archivar, destacar y ordenar convenios, cambiar categoría y cargar logo/imagen con el uploader existente. Solo nombre, categoría y beneficio son obligatorios; los contactos y condiciones no confirmados se dejan vacíos. Los nuevos registros empiezan inactivos. Guardá y esperá la confirmación para publicar cambios. Al pie del listado podés agregar categorías. Guía completa y activación incremental: [BENEFICIOS.md](BENEFICIOS.md).

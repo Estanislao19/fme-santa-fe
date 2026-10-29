@@ -11,6 +11,7 @@
     "test": "tsx --test tests/*.test.ts",
     "seed:generate": "tsx scripts/generate-seed.ts",
     "seed:institutional": "tsx scripts/generate-institutional-seed.ts",
+    "seed:benefits": "tsx scripts/generate-benefits-seed.ts",
     "verify:export:legacy": "node scripts/verify-export.mjs"
   },
   "dependencies": {

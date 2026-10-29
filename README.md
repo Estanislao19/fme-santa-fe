@@ -103,3 +103,7 @@ Misión, Visión, síntesis de Home, introducción de Socias y texto de Comunida
 ## Netlify sin Proxy
 
 El administrador se protege en Server Components, DAL, Server Actions y RLS. La renovación de cookies se realiza mediante un Route Handler Node, sin `proxy.ts` ni `middleware.ts`. El build utiliza Webpack para evitar un fallo de resolución de fuentes de Turbopack, conservando las tipografías actuales. Archivos, funcionamiento y verificación: [NETLIFY-SIN-PROXY.md](NETLIFY-SIN-PROXY.md).
+
+## Beneficios y convenios de socias
+
+Nueva pantalla `/admin/beneficios` y listado público `/beneficios`, integrado en Socias y enlazado desde Home/footer. Aplicar únicamente `supabase/migrations/202610290003_benefits.sql` una vez en el Supabase existente; no repetir migraciones previas ni resetear. No requiere variables nuevas. Los convenios se editan sin código y sin recompilar. Instalación, archivos y comprobación: [BENEFICIOS.md](BENEFICIOS.md).
